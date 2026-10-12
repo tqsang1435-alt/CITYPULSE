@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: citypulse-postgres
+    profiles: ["local-db"]
+    environment:
+      POSTGRES_DB: citypulse
+      POSTGRES_USER: citypulse
+      POSTGRES_PASSWORD: change_me_local_only
+    ports:
+      - "5432:5432"
+    volumes:
+      - citypulse_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U citypulse -d citypulse"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  citypulse_pgdata:

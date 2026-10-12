@@ -1,0 +1,19 @@
+# Secrets
+.env
+.env.*
+!.env.example
+application-local.yml
+# Java / Maven
+target/
+*.class
+*.log
+# Node
+node_modules/
+dist/
+.vite/
+coverage/
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
