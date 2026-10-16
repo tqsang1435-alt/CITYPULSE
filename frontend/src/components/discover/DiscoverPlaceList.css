@@ -1,0 +1,74 @@
+/* VISTA Discover Place List Styles - Coastal Sunlight Modernism */
+
+.vista-discover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.vista-discover-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.vista-discover-list__count {
+  font-family: var(--dnvibe-font-sans);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+}
+
+.vista-discover-list__sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vista-discover-list__sort-label {
+  font-size: 12.5px;
+  color: var(--dnvibe-text-secondary);
+}
+
+.vista-discover-list__sort-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--dnvibe-surface-container-lowest);
+  border: 1px solid var(--dnvibe-border);
+  border-radius: var(--dnvibe-radius-pill);
+  padding: 4px 10px;
+  box-shadow: 0 1px 4px rgba(2, 31, 38, 0.04);
+}
+
+.vista-discover-list__sort-select {
+  background: transparent;
+  border: none;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--dnvibe-text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 18px;
+}
+
+.vista-discover-list__sort-arrow {
+  position: absolute;
+  right: 6px;
+  pointer-events: none;
+  font-size: 16px;
+  color: var(--dnvibe-text-muted);
+}
+
+/* CARDS STACK */
+.vista-discover-list__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

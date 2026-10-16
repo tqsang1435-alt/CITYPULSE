@@ -1,0 +1,253 @@
+/* VISTA Discover Horizontal Place Card Styles - Coastal Sunlight Modernism Refinement */
+
+.vista-discover-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(220, 238, 238, 0.85);
+  box-shadow: 0 3px 12px rgba(23, 50, 58, 0.04);
+  padding: 12px;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+@media (min-width: 580px) {
+  .vista-discover-card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.vista-discover-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(37, 183, 181, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(37, 183, 181, 0.16);
+}
+
+/* SELECTED STATE: Outer glow, teal border, elevated shadow */
+.vista-discover-card--selected {
+  border-color: var(--vista-primary) !important;
+  box-shadow: 0 0 0 3px rgba(37, 183, 181, 0.18), 0 10px 28px -4px rgba(23, 50, 58, 0.14) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fdfe 100%) !important;
+}
+
+/* ==========================================================================
+   THUMBNAIL (LEFT)
+   ========================================================================== */
+
+.vista-discover-card__thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--dnvibe-surface-container-low);
+  flex-shrink: 0;
+}
+
+/* Vignette gradient over thumbnail */
+.vista-discover-card__thumb-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 31, 38, 0.28) 0%, transparent 40%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (min-width: 580px) {
+  .vista-discover-card__thumb-wrap {
+    width: 36%;
+    aspect-ratio: auto;
+    min-height: 155px;
+  }
+}
+
+.vista-discover-card__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-discover-card:hover .vista-discover-card__thumb {
+  transform: scale(1.04);
+}
+
+/* "★ Nổi bật" Badge */
+.vista-discover-card__featured-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 10px;
+  border-radius: var(--dnvibe-radius-pill);
+  background: linear-gradient(135deg, #fff7e6 0%, #fff1d6 100%);
+  border: 1px solid rgba(255, 191, 71, 0.4);
+  color: #7d5700;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(125, 87, 0, 0.1);
+}
+
+.vista-discover-card__featured-badge span:first-child {
+  color: #ffbf47;
+}
+
+/* ==========================================================================
+   INFO CONTENT (RIGHT)
+   ========================================================================== */
+
+.vista-discover-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  padding: 2px 4px;
+}
+
+/* Top: Title & Favorite Button */
+.vista-discover-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.vista-discover-card__name {
+  font-family: var(--dnvibe-font-sans);
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+  line-height: 1.3;
+  transition: color 180ms ease;
+}
+
+.vista-discover-card:hover .vista-discover-card__name {
+  color: var(--vista-primary);
+}
+
+/* Circular glass favorite button */
+.vista-discover-card__fav-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(220, 238, 238, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--vista-text-secondary);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(23, 50, 58, 0.05);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.vista-discover-card__fav-btn:hover {
+  color: #e53e3e;
+  background-color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 3px 10px rgba(229, 62, 62, 0.2);
+}
+
+.vista-discover-card__fav-btn:active {
+  transform: scale(0.96);
+}
+
+.vista-discover-card__fav-btn--active {
+  color: #e53e3e;
+  background-color: #ffffff;
+}
+
+/* District & Rating Row */
+.vista-discover-card__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.vista-discover-card__district {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dnvibe-primary);
+}
+
+.vista-discover-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+}
+
+.vista-discover-card__star {
+  color: #ffbf47; /* warm yellow accent */
+  font-size: 15px;
+}
+
+.vista-discover-card__rating-score {
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+}
+
+.vista-discover-card__rating-count {
+  color: var(--vista-text-secondary);
+  font-size: 11px;
+}
+
+/* Tag Chips */
+.vista-discover-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.vista-discover-card__tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--dnvibe-radius-pill);
+  background-color: rgba(223, 247, 244, 0.6);
+  border: 1px solid rgba(191, 239, 234, 0.75);
+  color: var(--vista-deep-teal);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Bottom Metadata: Price, Best Time, Crowd */
+.vista-discover-card__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(220, 238, 238, 0.75);
+  font-size: 11.5px;
+  color: var(--vista-text-secondary);
+}
+
+.vista-discover-card__spec {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.vista-discover-card__spec span:last-child {
+  font-weight: 600;
+}

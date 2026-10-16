@@ -1,0 +1,120 @@
+/* VISTA Discover Header Styles - Coastal Sunlight Modernism Refinement */
+
+.vista-discover-header {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #f7ffff 0%, #eaf9f7 100%);
+  border-bottom: 1px solid rgba(220, 238, 238, 0.7);
+  padding: 32px 0 18px;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .vista-discover-header {
+    padding: 38px 0 22px;
+  }
+}
+
+.vista-discover-header__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.22;
+}
+
+.vista-discover-header__skyline {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  width: 540px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 120' fill='%23006a68'%3E%3Cpath d='M0,120 L20,120 L20,70 L35,70 L35,120 L50,120 L50,40 L65,40 L65,120 L90,120 L90,20 L110,20 L110,120 L130,120 L130,55 L150,55 L150,120 L200,120 C230,80 270,75 300,120 C330,80 370,75 400,120 C430,80 470,75 500,120 L600,120 L600,120 Z' opacity='0.7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+}
+
+.vista-discover-header__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.vista-discover-header__left {
+  max-width: 680px;
+}
+
+.vista-discover-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.vista-discover-header__title {
+  font-family: var(--dnvibe-font-sans);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--dnvibe-text-primary);
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vista-discover-header__sunbeams {
+  display: inline-flex;
+  transform: translateY(-8px);
+  filter: drop-shadow(0 2px 4px rgba(255, 191, 71, 0.4));
+}
+
+.vista-discover-header__subtitle {
+  font-size: 14.5px;
+  color: var(--vista-text-secondary);
+  line-height: 1.55;
+  max-width: 58ch;
+  margin-top: 4px;
+}
+
+/* Right organic note bubble & arrow */
+.vista-discover-header__right {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 1024px) {
+  .vista-discover-header__right {
+    display: flex;
+  }
+}
+
+.vista-discover-header__note-bubble {
+  padding: 7px 16px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 183, 181, 0.35);
+  border-radius: var(--dnvibe-radius-pill);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vista-deep-teal);
+  box-shadow: 0 4px 14px rgba(23, 50, 58, 0.06);
+  transform: rotate(-2deg);
+  transition: transform 200ms ease;
+}
+
+.vista-discover-header__note-bubble:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.vista-discover-header__arrow {
+  margin-right: 18px;
+  margin-top: 2px;
+}

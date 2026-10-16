@@ -1,0 +1,206 @@
+/* VISTA Smart Planner Bar Styles - Coastal Sunlight Modernism Refinement */
+
+.vista-planner {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--dnvibe-radius-xl);
+  border: 1px solid rgba(191, 239, 234, 0.85);
+  box-shadow: 0 20px 48px -12px rgba(23, 50, 58, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  padding: var(--dnvibe-space-6);
+  position: relative;
+  z-index: 10;
+  transition: all 220ms ease;
+}
+
+.vista-planner:hover {
+  box-shadow: 0 24px 56px -10px rgba(37, 183, 181, 0.2), 0 0 0 1px rgba(255, 255, 255, 1) inset;
+}
+
+.vista-planner__form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   FIELDS GRID
+   ========================================================================== */
+
+.vista-planner__fields-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .vista-planner__fields-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .vista-planner__fields-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Individual Field Card */
+.vista-planner__field {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(247, 255, 255, 0.8);
+  border: 1px solid rgba(220, 238, 238, 0.75);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.vista-planner__field:hover,
+.vista-planner__field:focus-within {
+  background: #ffffff;
+  border-color: rgba(37, 183, 181, 0.45);
+  box-shadow: 0 4px 14px rgba(37, 183, 181, 0.14);
+  transform: translateY(-2px);
+}
+
+.vista-planner__field-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: var(--dnvibe-primary);
+}
+
+.vista-planner__field-icon {
+  font-size: 18px;
+}
+
+.vista-planner__field-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dnvibe-primary);
+  cursor: pointer;
+}
+
+/* Dropdown select */
+.vista-planner__select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vista-planner__select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 22px;
+}
+
+.vista-planner__arrow-icon {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  font-size: 18px;
+  color: var(--vista-text-secondary);
+  transition: transform 180ms ease;
+}
+
+.vista-planner__field:hover .vista-planner__arrow-icon,
+.vista-planner__field:focus-within .vista-planner__arrow-icon {
+  transform: translateY(1px);
+  color: var(--dnvibe-primary);
+}
+
+/* ==========================================================================
+   BOTTOM CTA BAR
+   ========================================================================== */
+
+.vista-planner__bottom-bar {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(220, 238, 238, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .vista-planner__bottom-bar {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+.vista-planner__ai-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--vista-text-secondary);
+}
+
+.vista-planner__ai-icon {
+  font-size: 16px;
+  color: #ffbf47; /* warm accent yellow */
+  flex-shrink: 0;
+}
+
+.vista-planner__submit-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 32px;
+  border-radius: var(--dnvibe-radius-pill);
+  background: linear-gradient(135deg, #25b7b5 0%, #159c9a 100%);
+  color: #ffffff;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 15.5px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 183, 181, 0.32);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .vista-planner__submit-btn {
+    width: auto;
+  }
+}
+
+.vista-planner__submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #1fb0ae 0%, #006a68 100%);
+  box-shadow: 0 8px 24px rgba(37, 183, 181, 0.42);
+}
+
+.vista-planner__submit-btn:active {
+  transform: translateY(0);
+}
+
+.vista-planner__submit-icon {
+  font-size: 18px;
+  transition: transform 180ms ease;
+}
+
+.vista-planner__submit-btn:hover .vista-planner__submit-icon {
+  transform: translateX(3px);
+}

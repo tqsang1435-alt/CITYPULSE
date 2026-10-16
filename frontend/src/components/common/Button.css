@@ -1,0 +1,119 @@
+/* DNVIBE Button Styles - Coastal Sunlight Modernism */
+
+.dnvibe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dnvibe-space-2);
+  border-radius: var(--dnvibe-radius-pill);
+  font-family: var(--dnvibe-font-sans);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all var(--dnvibe-transition-normal);
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.dnvibe-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.dnvibe-btn:focus-visible {
+  outline: 3px solid var(--dnvibe-primary-fixed);
+  outline-offset: 2px;
+}
+
+/* SIZES */
+.dnvibe-btn--sm {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.dnvibe-btn--md {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.dnvibe-btn--lg {
+  height: 52px;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* VARIANTS */
+.dnvibe-btn--primary {
+  background-color: var(--dnvibe-primary-container);
+  color: var(--dnvibe-on-primary);
+  box-shadow: 0 4px 14px rgba(37, 183, 181, 0.28);
+}
+
+.dnvibe-btn--primary:hover:not(:disabled) {
+  background-color: var(--dnvibe-primary);
+  box-shadow: 0 6px 20px rgba(0, 106, 104, 0.32);
+}
+
+.dnvibe-btn--secondary {
+  background-color: var(--dnvibe-surface-container-low);
+  color: var(--dnvibe-primary);
+  border-color: var(--dnvibe-border);
+}
+
+.dnvibe-btn--secondary:hover:not(:disabled) {
+  background-color: var(--dnvibe-surface-container);
+  border-color: var(--dnvibe-outline-variant);
+  color: var(--dnvibe-primary-hover);
+}
+
+.dnvibe-btn--ghost {
+  background-color: transparent;
+  color: var(--dnvibe-text-secondary);
+}
+
+.dnvibe-btn--ghost:hover:not(:disabled) {
+  background-color: var(--dnvibe-surface-container-low);
+  color: var(--dnvibe-text-primary);
+}
+
+/* FULL WIDTH */
+.dnvibe-btn--full {
+  width: 100%;
+}
+
+/* DISABLED STATE */
+.dnvibe-btn:disabled,
+.dnvibe-btn--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* LOADING SPINNER */
+.dnvibe-btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: dnvibe-spin 0.65s linear infinite;
+}
+
+@keyframes dnvibe-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dnvibe-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

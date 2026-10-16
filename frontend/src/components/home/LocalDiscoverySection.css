@@ -1,0 +1,184 @@
+/* VISTA Local Discovery Section Styles - Coastal Sunlight Modernism Refinement */
+
+.vista-discovery-section {
+  padding-top: 64px;
+  padding-bottom: 80px;
+  background: linear-gradient(180deg, #f7ffff 0%, #eaf9f7 100%);
+  border-top: 1px solid rgba(220, 238, 238, 0.65);
+  border-bottom: 1px solid rgba(220, 238, 238, 0.65);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .vista-discovery-section {
+    padding-top: 80px;
+    padding-bottom: 104px;
+  }
+}
+
+/* Subtle decorative coastal wave pattern in corner */
+.vista-discovery-section::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 183, 181, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.vista-discovery-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .vista-discovery-section__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}
+
+.vista-discovery-section__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--dnvibe-radius-pill);
+  background-color: rgba(223, 247, 244, 0.8);
+  border: 1px solid rgba(191, 239, 234, 0.9);
+  color: var(--dnvibe-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.vista-discovery-section__title {
+  font-family: var(--dnvibe-font-sans);
+  font-size: clamp(24px, 3.4vw, 34px);
+  font-weight: 800;
+  color: var(--dnvibe-text-primary);
+  line-height: 1.25;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.vista-discovery-section__title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #25b7b5, #ffbf47);
+  margin-top: 10px;
+}
+
+.vista-discovery-section__desc {
+  font-size: 14.5px;
+  color: var(--vista-text-secondary);
+  line-height: 1.6;
+  max-width: 55ch;
+  margin-top: 4px;
+}
+
+/* Right Actions: Tabs & See All */
+.vista-discovery-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.vista-discovery-section__tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.vista-discovery-section__tab {
+  padding: 7px 16px;
+  border-radius: var(--dnvibe-radius-pill);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(220, 238, 238, 0.8);
+  color: var(--vista-text-secondary);
+  font-family: var(--dnvibe-font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-discovery-section__tab:hover {
+  color: var(--dnvibe-text-primary);
+  background: #ffffff;
+  border-color: rgba(37, 183, 181, 0.4);
+}
+
+.vista-discovery-section__tab--active {
+  background: linear-gradient(135deg, #25b7b5 0%, #159c9a 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(37, 183, 181, 0.3);
+}
+
+.vista-discovery-section__see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--dnvibe-primary);
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: var(--dnvibe-radius-pill);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(191, 239, 234, 0.8);
+  box-shadow: 0 2px 6px rgba(23, 50, 58, 0.04);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.vista-discovery-section__see-all:hover {
+  background: #ffffff;
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(37, 183, 181, 0.2);
+  color: var(--vista-primary);
+}
+
+/* ==========================================================================
+   CARDS GRID (3 ON DESKTOP)
+   ========================================================================== */
+
+.vista-discovery-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .vista-discovery-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .vista-discovery-section__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
