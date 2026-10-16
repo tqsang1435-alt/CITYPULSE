@@ -1,0 +1,206 @@
+/* VISTA Discover Filter Bar Styles - Coastal Sunlight Modernism Refinement */
+
+.vista-filter-bar-wrapper {
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+.vista-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #ffffff;
+  border-radius: var(--dnvibe-radius-xl);
+  border: 1px solid rgba(220, 238, 238, 0.85);
+  box-shadow: 0 8px 30px -4px rgba(23, 50, 58, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  padding: 10px 18px;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-filter-bar:hover {
+  box-shadow: 0 12px 36px -4px rgba(37, 183, 181, 0.14), 0 0 0 1px rgba(255, 255, 255, 1) inset;
+}
+
+@media (min-width: 1100px) {
+  .vista-filter-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+}
+
+/* ==========================================================================
+   FILTER ITEMS ROW
+   ========================================================================== */
+
+.vista-filter-bar__items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.vista-filter-bar__items::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .vista-filter-bar__items {
+    overflow-x: visible;
+    padding-bottom: 0;
+    gap: 8px;
+  }
+}
+
+/* Single Item segment with hover feedback */
+.vista-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-filter-item:hover,
+.vista-filter-item:focus-within {
+  background-color: rgba(223, 247, 244, 0.45);
+}
+
+.vista-filter-item__icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(223, 247, 244, 0.7);
+  border: 1px solid rgba(191, 239, 234, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 160ms ease;
+}
+
+.vista-filter-item:hover .vista-filter-item__icon-wrap {
+  transform: scale(1.05);
+}
+
+.vista-filter-item__icon-wrap span {
+  font-size: 17px;
+  color: var(--dnvibe-primary);
+}
+
+.vista-filter-item__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.vista-filter-item__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vista-text-secondary);
+  line-height: 1.2;
+}
+
+.vista-filter-item__select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vista-filter-item__select {
+  background: transparent;
+  border: none;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 18px;
+  white-space: nowrap;
+}
+
+.vista-filter-item__arrow {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  font-size: 16px;
+  color: var(--vista-text-secondary);
+}
+
+/* Vertical divider */
+.vista-filter-bar__divider {
+  width: 1px;
+  height: 28px;
+  background-color: rgba(220, 238, 238, 0.8);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   ACTIONS (RESET & CTA)
+   ========================================================================== */
+
+.vista-filter-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+
+.vista-filter-bar__reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vista-text-secondary);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--dnvibe-radius-pill);
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.vista-filter-bar__reset-btn:hover {
+  color: var(--dnvibe-primary);
+  background-color: rgba(223, 247, 244, 0.5);
+  border-color: rgba(191, 239, 234, 0.7);
+}
+
+.vista-filter-bar__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #25b7b5 0%, #159c9a 100%);
+  color: #ffffff;
+  border: none;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: var(--dnvibe-radius-pill);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 183, 181, 0.32);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.vista-filter-bar__cta-btn:hover {
+  background: linear-gradient(135deg, #1fb0ae 0%, #006a68 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 183, 181, 0.42);
+}
+
+.vista-filter-bar__cta-btn:active {
+  transform: translateY(0);
+}

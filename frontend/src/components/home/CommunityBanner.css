@@ -1,0 +1,154 @@
+/* VISTA Community Banner Styles - Coastal Sunlight Modernism */
+
+.vista-community-banner {
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+.vista-community-banner__inner {
+  background: linear-gradient(135deg, #ffffff 0%, #f7fcfe 55%, #eefaf8 100%);
+  border-radius: var(--dnvibe-radius-xl);
+  border: 1px solid rgba(191, 239, 234, 0.85);
+  box-shadow: 0 12px 36px -6px rgba(23, 50, 58, 0.08);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.vista-community-banner__inner::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 183, 181, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .vista-community-banner__inner {
+    padding: 48px;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+.vista-community-banner__content {
+  max-width: 580px;
+}
+
+.vista-community-banner__stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--dnvibe-secondary-container); /* gold #febe46 */
+  margin-bottom: 12px;
+}
+
+.vista-community-banner__title {
+  font-family: var(--dnvibe-font-sans);
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+  margin-bottom: 12px;
+}
+
+.vista-community-banner__quote {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--dnvibe-text-secondary);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.vista-community-banner__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vista-community-banner__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(37, 183, 181, 0.2);
+  color: var(--dnvibe-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.vista-community-banner__author-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dnvibe-text-primary);
+}
+
+.vista-community-banner__author-loc {
+  display: block;
+  font-size: 12px;
+  color: var(--dnvibe-text-secondary);
+}
+
+.vista-community-banner__cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .vista-community-banner__cta-group {
+    flex-direction: row;
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+.vista-community-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: var(--dnvibe-radius-pill);
+  font-family: var(--dnvibe-font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: all var(--dnvibe-transition-fast);
+  white-space: nowrap;
+}
+
+.vista-community-banner__btn--outline {
+  background-color: var(--dnvibe-surface-container-low);
+  color: var(--dnvibe-primary);
+}
+
+.vista-community-banner__btn--outline:hover {
+  background-color: var(--dnvibe-surface-container);
+  color: var(--dnvibe-primary-hover);
+}
+
+.vista-community-banner__btn--primary {
+  background: linear-gradient(135deg, #25b7b5 0%, #159c9a 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 183, 181, 0.32);
+}
+
+.vista-community-banner__btn--primary:hover {
+  background: linear-gradient(135deg, #1fb0ae 0%, #006a68 100%);
+  box-shadow: 0 6px 20px rgba(37, 183, 181, 0.42);
+  transform: translateY(-2px);
+}

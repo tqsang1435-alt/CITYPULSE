@@ -1,0 +1,167 @@
+/**
+ * VISTA Design System Tokens
+ * Theme: Coastal Sunlight Modernism
+ * Source: mockup/stitch_dnvibe_da_nang_travel_discovery/coastal_sunlight_modernism/DESIGN.md
+ */
+
+:root {
+  /* ==========================================================================
+     OFFICIAL VISTA PALETTE (Coastal Sunlight Modernism)
+     ========================================================================== */
+  --vista-primary: #25b7b5;           /* Primary Teal */
+  --vista-deep-teal: #17323a;         /* Deep Teal / Primary Text */
+  --vista-light-aqua: #bfefea;        /* Light Aqua */
+  --vista-very-light-aqua: #eaf9f7;   /* Very Light Aqua Background */
+  --vista-white: #ffffff;             /* Pure White */
+  --vista-warm-sand: #fff1d6;         /* Warm Sand */
+  --vista-accent-yellow: #ffbf47;     /* Accent Yellow */
+  --vista-text-primary: #17323a;      /* Primary Text */
+  --vista-text-secondary: #6f7e82;    /* Secondary Text */
+  --vista-border: #dceeee;            /* Soft Border */
+
+  /* Gradients & Glows for Visual Depth */
+  --vista-gradient-bg: linear-gradient(180deg, #f7ffff 0%, #eaf9f7 100%);
+  --vista-gradient-card: linear-gradient(180deg, #ffffff 0%, #f7fdfe 100%);
+  --vista-gradient-cta: linear-gradient(135deg, #25b7b5 0%, #159c9a 100%);
+  --vista-gradient-cta-hover: linear-gradient(135deg, #1fb0ae 0%, #006a68 100%);
+  --vista-glow-teal: 0 0 0 3px rgba(37, 183, 181, 0.18);
+  --vista-shadow-glass: 0 10px 30px -4px rgba(23, 50, 58, 0.08);
+
+  /* ==========================================================================
+     STITCH DESIGN TOKENS (MATERIAL COMPATIBILITY)
+     ========================================================================== */
+
+  /* Primary Brand Colors (Oceanic Teal) */
+  --dnvibe-primary: #006a68;
+  --dnvibe-primary-hover: #00504f;
+  --dnvibe-primary-container: #25b7b5;
+  --dnvibe-on-primary: #ffffff;
+  --dnvibe-on-primary-container: #004242;
+  --dnvibe-inverse-primary: #56d9d7;
+  --dnvibe-primary-fixed: #77f6f3;
+  --dnvibe-primary-fixed-dim: #56d9d7;
+
+  /* Surfaces & Canvas (Coastal Aqua Layering) */
+  --dnvibe-surface: #f1fbff;
+  --dnvibe-surface-dim: #c2dfe9;
+  --dnvibe-surface-bright: #f1fbff;
+  --dnvibe-surface-container-lowest: #ffffff;
+  --dnvibe-surface-container-low: #e2f7ff;
+  --dnvibe-surface-container: #d6f3fd;
+  --dnvibe-surface-container-high: #d0edf7;
+  --dnvibe-surface-container-highest: #cbe7f2;
+  --dnvibe-surface-variant: #cbe7f2;
+
+  /* Neutrals & Text (Deep Ocean Teal instead of harsh black) */
+  --dnvibe-text-primary: #021f26;
+  --dnvibe-text-secondary: #3c4949;
+  --dnvibe-text-muted: #6c7a79;
+  --dnvibe-inverse-surface: #19343c;
+  --dnvibe-inverse-on-surface: #dbf5ff;
+
+  /* Borders & Outlines */
+  --dnvibe-border: #dceeee;
+  --dnvibe-outline: #6c7a79;
+  --dnvibe-outline-variant: #bbc9c8;
+
+  /* Secondary Accents (Tropical Sunlight & Warm Sand) */
+  --dnvibe-secondary: #7d5700;
+  --dnvibe-on-secondary: #ffffff;
+  --dnvibe-secondary-container: #febe46;
+  --dnvibe-on-secondary-container: #704e00;
+  --dnvibe-secondary-fixed: #ffdeab;
+  --dnvibe-secondary-fixed-dim: #fbbc44;
+  --dnvibe-on-secondary-fixed: #271900;
+  --dnvibe-on-secondary-fixed-variant: #5f4100;
+
+  /* Status Colors */
+  --dnvibe-error: #ba1a1a;
+  --dnvibe-error-container: #ffdad6;
+  --dnvibe-on-error: #ffffff;
+  --dnvibe-on-error-container: #93000a;
+  --dnvibe-success: #007a4d;
+  --dnvibe-success-container: #daf5e5;
+  --dnvibe-on-success: #ffffff;
+
+  /* Glassmorphism Overlays */
+  --dnvibe-glass-bg: rgba(255, 255, 255, 0.88);
+  --dnvibe-glass-blur: blur(16px);
+  --dnvibe-glass-border: rgba(220, 238, 238, 0.85);
+
+  /* ==========================================================================
+     TYPOGRAPHY TOKENS (Plus Jakarta Sans)
+     ========================================================================== */
+  --dnvibe-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --dnvibe-font-icon: 'Material Symbols Outlined', sans-serif;
+
+  /* Display */
+  --dnvibe-text-display: 800 48px/56px var(--dnvibe-font-sans);
+  --dnvibe-text-display-mobile: 800 36px/44px var(--dnvibe-font-sans);
+
+  /* Headlines */
+  --dnvibe-text-headline-lg: 700 32px/40px var(--dnvibe-font-sans);
+  --dnvibe-text-headline-lg-mobile: 700 26px/34px var(--dnvibe-font-sans);
+  --dnvibe-text-headline-md: 700 22px/28px var(--dnvibe-font-sans);
+
+  /* Titles */
+  --dnvibe-text-title-lg: 600 18px/24px var(--dnvibe-font-sans);
+  --dnvibe-text-title-md: 600 16px/22px var(--dnvibe-font-sans);
+
+  /* Body */
+  --dnvibe-text-body-lg: 400 16px/24px var(--dnvibe-font-sans);
+  --dnvibe-text-body-md: 400 14px/20px var(--dnvibe-font-sans);
+  --dnvibe-text-body-sm: 400 12px/16px var(--dnvibe-font-sans);
+
+  /* Labels / Chips */
+  --dnvibe-text-label-lg: 600 14px/18px var(--dnvibe-font-sans);
+  --dnvibe-text-label-md: 600 12px/16px var(--dnvibe-font-sans);
+  --dnvibe-text-label-sm: 700 10px/12px var(--dnvibe-font-sans);
+
+  /* ==========================================================================
+     SPACING TOKENS (8pt Base Grid)
+     ========================================================================== */
+  --dnvibe-space-1: 0.25rem; /* 4px */
+  --dnvibe-space-2: 0.5rem;  /* 8px */
+  --dnvibe-space-3: 0.75rem; /* 12px */
+  --dnvibe-space-4: 1rem;    /* 16px */
+  --dnvibe-space-5: 1.25rem; /* 20px */
+  --dnvibe-space-6: 1.5rem;  /* 24px */
+  --dnvibe-space-8: 2rem;    /* 32px */
+  --dnvibe-space-10: 2.5rem; /* 40px */
+  --dnvibe-space-12: 3rem;   /* 48px */
+  --dnvibe-space-16: 4rem;   /* 64px */
+
+  /* ==========================================================================
+     SHAPE & CORNER RADIUS TOKENS
+     ========================================================================== */
+  --dnvibe-radius-sm: 0.5rem;   /* 8px */
+  --dnvibe-radius-md: 1rem;     /* 16px (Card DEFAULT) */
+  --dnvibe-radius-lg: 1.5rem;   /* 24px (Large Card) */
+  --dnvibe-radius-xl: 2rem;     /* 32px */
+  --dnvibe-radius-pill: 9999px; /* Pill controls, tags, buttons */
+
+  /* ==========================================================================
+     ELEVATION & SHADOW TOKENS
+     ========================================================================== */
+  --dnvibe-shadow-sm: 0 1px 4px rgba(2, 31, 38, 0.04);
+  --dnvibe-shadow-header: 0 1px 8px rgba(2, 31, 38, 0.06);
+  --dnvibe-shadow-card: 0 4px 20px -2px rgba(23, 50, 58, 0.05);
+  --dnvibe-shadow-hover: 0 12px 32px -4px rgba(37, 183, 181, 0.18);
+  --dnvibe-shadow-floating: 0 16px 40px -8px rgba(2, 31, 38, 0.20);
+
+  /* ==========================================================================
+     LAYOUT & CONTAINER TOKENS
+     ========================================================================== */
+  --dnvibe-max-width: 1280px;
+  --dnvibe-header-height: 80px;
+  --dnvibe-gutter-mobile: 1rem;   /* 16px */
+  --dnvibe-gutter-tablet: 1.5rem; /* 24px */
+  --dnvibe-gutter-desktop: 3rem;  /* 48px */
+
+  /* ==========================================================================
+     TRANSITION DURATIONS
+     ========================================================================== */
+  --dnvibe-transition-fast: 150ms ease;
+  --dnvibe-transition-normal: 250ms ease;
+  --dnvibe-transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}

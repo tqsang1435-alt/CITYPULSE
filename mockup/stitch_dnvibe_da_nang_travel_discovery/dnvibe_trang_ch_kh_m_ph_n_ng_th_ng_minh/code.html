@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error-container":"#ffdad6","on-tertiary-fixed":"#211b0b","primary":"#006a68","tertiary-fixed":"#efe1c7","on-primary":"#ffffff","surface-container-low":"#e2f7ff","on-primary-container":"#004242","on-tertiary":"#ffffff","on-tertiary-container":"#423a28","on-secondary-fixed":"#271900","surface-container-highest":"#cbe7f2","surface-variant":"#cbe7f2","outline-variant":"#bbc9c8","on-tertiary-fixed-variant":"#4e4633","surface-container-lowest":"#ffffff","on-secondary-fixed-variant":"#5f4100","inverse-primary":"#56d9d7","secondary-container":"#febe46","on-secondary":"#ffffff","tertiary-container":"#b0a48c","on-background":"#021f26","on-primary-fixed":"#00201f","surface":"#f1fbff","inverse-surface":"#19343c","surface-container-high":"#d0edf7","primary-container":"#25b7b5","secondary-fixed":"#ffdeab","primary-fixed-dim":"#56d9d7","primary-fixed":"#77f6f3","surface-container":"#d6f3fd","surface-tint":"#006a68","on-secondary-container":"#704e00","tertiary-fixed-dim":"#d2c5ac","background":"#f1fbff","secondary":"#7d5700","on-surface":"#021f26","on-primary-fixed-variant":"#00504f","tertiary":"#675d49","on-error":"#ffffff","outline":"#6c7a79","inverse-on-surface":"#dbf5ff","error":"#ba1a1a","surface-dim":"#c2dfe9","on-error-container":"#93000a","secondary-fixed-dim":"#fbbc44","on-surface-variant":"#3c4949","surface-bright":"#f1fbff"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"space-xl":"2.5rem","gutter":"1rem","space-xs":"0.25rem","margin-lg":"3rem","space-md":"1rem","space-sm":"0.5rem","gutter-md":"1.5rem","space-lg":"1.5rem","margin":"1rem","margin-md":"2rem"},"fontFamily":{"display":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"display-mobile":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"]},"fontSize":{"display":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"22px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-sm":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"700"}],"title-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(2,31,38,0.06)]"><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-4"><div class="flex items-center gap-3 shrink-0"><img alt="DNVIBE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XrfeW9rEdIf-K-bxo1q3AAXi8PRP6exzikwiTeJ8EOqZ3AghoPjpP1jZYLiGrbPA0aNC3GjefNbhZAyikI_a3M_LH6Enb1lOl2ohsAMInHDim1vUyECR1jIEEsjQXpgSJh1gg_iAt5GeUjf0TTnxa-aTncc6RFQD7rB2G3UtbtR3LOZhmLLavh-9qce1q48F9NlK6QWa9mR8IarTTH4Fw3CDnrsEZTVzkEcRpdmAmfoz5j32TpwhoYIF0"/><span class="font-headline-md text-headline-md font-bold tracking-tight text-primary">DNVIBE</span></div><nav class="hidden md:flex items-center gap-1.5 p-1 bg-surface-container/60 rounded-full" data-active-classes="bg-surface-container-low text-primary font-bold shadow-sm"><a aria-current="page" class="px-4 py-2 rounded-full transition-colors bg-surface-container-low text-primary font-bold shadow-sm" data-path="kham-pha" href="#">Khám phá</a><a class="px-4 py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="lich-trinh" href="#">Lịch trình</a><a class="px-4 py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="su-kien" href="#">Sự kiện</a><a class="px-4 py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="ban-do" href="#">Bản đồ</a><a class="px-4 py-2 rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="da-luu" href="#">Đã lưu</a></nav><div class="flex items-center gap-3 shrink-0"><button aria-label="Tìm kiếm điểm đến" class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-title-lg">search</span></button><div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-md text-label-md"><span class="material-symbols-outlined text-secondary text-sm">wb_sunny</span><span>Đà Nẵng, VN</span></div><div class="relative flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw25FxEaaUmXzhkrAGIEhtX5DFQGxVUa3I0JPhhd28l07NXOq9ZmJRRyySeyTnPcCGQVf-dgtCkBaOWBJUF1pNMN-Ko50zF8qR88zBbK_M4l2Iol9JRJK3N2V_kA6FbOGcabkoNRtO8XJfBDdmgYnnHE1P-XIH5nmKi8_wJ_dTXYL-BMNIYVyW0nuhsnEV2FNKxiJMOQFk7_ZFbehSaQmxw5UPD5r2Rh2MYH_MofLUo5mssNGlfXxh"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full -mt-20 overflow-hidden bg-surface">
+<!-- Hero Background Image & Coastal Atmospheric Overlays -->
+<div class="absolute inset-0 w-full h-full">
+<img alt="Bãi biển Mỹ Khê Đà Nẵng với dải cát trắng mịn và làn nước xanh biếc" class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mYr5rd1TjfE68q6xLxdtnxXl2oI7QgJtjvqQBNH8Ix92PXzBQZa5t3pTLt3-jFFNzuWDyeVN1NtF5V0LE10FpTgeLjUeFIvxhFXmiY_kQ7voIBv-x_5QyW-o5CAWG3dxS8J3o_1jxKTbsUTDcUaxKMWHpuLnoUveoGM3Sp3M5VdV-co8trJaUpjeZn-wSxnVdHcKRdbCMmtdCarMs9UYVdBzK4Ht_-V0oAMLYsTAw02PeK1U4Cjr"/>
+<!-- Soft Aqua Scrim and Tropical Gradient Mask -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/65 to-on-surface/40"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-low/80 via-transparent to-primary/10"></div>
+</div>
+<!-- Hero Content Container -->
+<div class="relative max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28 md:pt-44 md:pb-36 flex flex-col items-center text-center">
+<!-- Live City Pulse Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm mb-6 animate-fade-in">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary -ml-4"></span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Hôm nay 28°C • Biển êm • Sóng nhẹ 0.4m</span>
+</div>
+<!-- Main Editorial Headline -->
+<h1 class="font-display text-display md:text-[56px] md:leading-[64px] font-extrabold text-on-surface tracking-tight max-w-4xl drop-shadow-sm">
+        Bạn có <span class="text-primary underline decoration-primary-container/60 decoration-wavy decoration-2">4 tiếng</span> ở Đà Nẵng?
+      </h1>
+<p class="mt-5 font-body-lg text-body-lg text-on-surface-variant max-w-2xl font-normal leading-relaxed">
+        Để <strong class="text-primary font-bold">DNVIBE</strong> giúp bạn tạo một lịch trình thông minh, phù hợp với thời gian, ngân sách và sở thích riêng của bạn theo thời gian thực.
+      </p>
+<!-- Smart Planning Bar: Floating Glass Bento Form -->
+<div class="w-full max-w-5xl mt-10 p-4 md:p-6 rounded-lg bg-surface-container-lowest/95 backdrop-blur-xl shadow-xl">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+<!-- Input 1: Thời gian -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md mb-1.5">
+<span class="material-symbols-outlined text-title-md">schedule</span>
+<span>Thời gian rảnh</span>
+</div>
+<div class="relative">
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface font-semibold focus:outline-none appearance-none cursor-pointer pr-6">
+<option selected="" value="4h">4 tiếng (Dạo nhanh)</option>
+<option value="8h">8 tiếng (Nửa ngày)</option>
+<option value="1d">1 ngày (Trọn vẹn)</option>
+<option value="2d1n">2 ngày 1 đêm</option>
+<option value="3d2n">3 ngày 2 đêm</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-lg">expand_more</span>
+</div>
+</div>
+<!-- Input 2: Ngân sách -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md mb-1.5">
+<span class="material-symbols-outlined text-title-md">payments</span>
+<span>Ngân sách dự kiến</span>
+</div>
+<div class="relative">
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface font-semibold focus:outline-none appearance-none cursor-pointer pr-6">
+<option value="saving">Tiết kiệm (< 300k)</option>
+<option selected="" value="medium">Vừa phải (300k - 700k)</option>
+<option value="luxury">Thoải mái (> 700k)</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-lg">expand_more</span>
+</div>
+</div>
+<!-- Input 3: Sở thích -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md mb-1.5">
+<span class="material-symbols-outlined text-title-md">surfing</span>
+<span>Gu trải nghiệm</span>
+</div>
+<div class="relative">
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface font-semibold focus:outline-none appearance-none cursor-pointer pr-6">
+<option selected="" value="beach">Biển & Chill thư giãn</option>
+<option value="checkin">Check-in sống ảo</option>
+<option value="food">Ẩm thực địa phương</option>
+<option value="culture">Văn hóa & Di sản</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-lg">expand_more</span>
+</div>
+</div>
+<!-- Input 4: Phương tiện -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md mb-1.5">
+<span class="material-symbols-outlined text-title-md">two_wheeler</span>
+<span>Phương tiện</span>
+</div>
+<div class="relative">
+<select class="w-full bg-transparent font-title-md text-title-md text-on-surface font-semibold focus:outline-none appearance-none cursor-pointer pr-6">
+<option selected="" value="bike">Xe máy linh hoạt</option>
+<option value="taxi">Taxi / Grab tiện lợi</option>
+<option value="walk">Đi bộ tản bộ</option>
+</select>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-lg">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Form Submission CTA Bar -->
+<div class="mt-5 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>Hệ thống AI tự động tối ưu đường đi & tránh khung giờ kẹt xe</span>
+</div>
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary-container text-on-primary font-headline-md text-headline-md font-bold shadow-lg hover:bg-primary transition-all duration-300 flex items-center justify-center gap-3 group active:scale-95" type="button">
+<span>Tạo lịch trình ngay</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">waves</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- QUICK CATEGORIES SECTION -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<span class="font-label-lg text-label-lg text-primary font-bold uppercase tracking-wider">Cảm hứng bất tận</span>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">Hôm nay bạn muốn trải nghiệm gì?</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+        Các danh mục được thiết kế theo nhịp sống người dân bản địa, từ món ăn bình dân đến những góc ngắm hoàng hôn đắt giá nhất.
+      </p>
+</div>
+<!-- 6 Categorical Bento Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- 1. Ăn gì -->
+<a class="group p-6 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md">ramen_dining</span>
+</div>
+<span class="material-symbols-outlined text-primary font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">arrow_outward</span>
+</div>
+<div class="mt-8">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Ăn gì Đà Nẵng</h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Mì Quảng đậm vị, bánh xèo tôm nhảy giòn rụm, hải sản tươi nướng bên bờ biển Mỹ Khê.</p>
+</div>
+<div class="mt-4 flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold">
+<span>Khám phá 140+ quán ngon</span>
+</div>
+</a>
+<!-- 2. Đi đâu -->
+<a class="group p-6 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md">landscape</span>
+</div>
+<span class="material-symbols-outlined text-secondary font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">arrow_outward</span>
+</div>
+<div class="mt-8">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-secondary transition-colors">Đi đâu cảnh đẹp</h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Danh thắng Ngũ Hành Sơn hùng vĩ, đỉnh Bàn Cờ lộng gió, dải bãi tắm Non Nước nguyên sơ.</p>
+</div>
+<div class="mt-4 flex items-center gap-1.5 font-label-md text-label-md text-secondary font-bold">
+<span>28 danh lam thắng cảnh</span>
+</div>
+</a>
+<!-- 3. Chill -->
+<a class="group p-6 rounded-lg bg-secondary-fixed/30 hover:bg-secondary-fixed/50 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-headline-md">local_cafe</span>
+</div>
+<span class="material-symbols-outlined text-secondary font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">arrow_outward</span>
+</div>
+<div class="mt-8">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-secondary transition-colors">Chill & Thư giãn</h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Quán cafe ven bờ biển ngắm hoàng hôn, bar rooftop view toàn cảnh sông Hàn lung linh về đêm.</p>
+</div>
+<div class="mt-4 flex items-center gap-1.5 font-label-md text-label-md text-secondary font-bold">
+<span>52 góc view cực đẹp</span>
+</div>
+</a>
+<!-- 4. Văn hóa -->
+<a class="group p-6 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md">temple_buddhist</span>
+</div>
+<span class="material-symbols-outlined text-primary font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">arrow_outward</span>
+</div>
+<div class="mt-8">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Văn hóa & Di sản</h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Cầu Rồng phun lửa kỳ vĩ, làng đá Non Nước trăm năm, Bảo tàng Điêu khắc Chăm cổ kính.</p>
+</div>
+<div class="mt-4 flex items-center gap-1.5 font-label-md text-label-md text-primary font-bold">
+<span>19 địa điểm lịch sử</span>
+</div>
+</a>
+<!-- 5. Buổi tối -->
+<a class="group p-6 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-md hover:-translate-y-1 relative overflow-hidden" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-secondary/15 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md">nightlife</span>
+</div>
+<span class="material-symbols-outlined text-secondary font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">arrow_outward</span>
+</div>
+<div class="mt-8">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-secondary transition-colors">Đà Nẵng Về Đêm</h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Chợ đêm Helio nhộn nhịp, du thuyền lướt sóng Hàn, phố đi bộ Bạch Đằng ngập tràn âm nhạc.</p>
+</div>
+<div class="mt-4 flex items-center gap-1.5 font-label-md text-label-md text-secondary font-bold">
+<span>35 điểm hẹn rực rỡ</span>
+</div>
+</a>
+<!-- 6. Gần tôi -->
+<a class="group p-6 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all duration-300 flex flex-col justify-between shadow-md hover:shadow-xl hover:-translate-y-1 relative overflow-hidden" href="#">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform backdrop-blur-sm">
+<span class="material-symbols-outlined text-headline-md">near_me</span>
+</div>
+<span class="material-symbols-outlined text-white font-bold group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">my_location</span>
+</div>
+<div class="mt-8">
+<h3 class="font-title-lg text-title-lg font-bold text-white">Xung Quanh Bạn</h3>
+<p class="mt-2 font-body-sm text-body-sm text-white/90 leading-relaxed">Định vị GPS để tìm quán ăn ngon, bãi tắm đẹp và trạm xe công cộng trong bán kính 2km ngay tức thì.</p>
+</div>
+<div class="mt-4 flex items-center gap-1.5 font-label-md text-label-md text-white font-bold">
+<span>Mở radar địa phương</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</div>
+</a>
+</div>
+</section>
+<!-- SECTION: KHÁM PHÁ NHƯ NGƯỜI ĐỊA PHƯƠNG -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span>Dữ liệu thực tế từ cộng đồng du lịch</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Khám phá như người địa phương</h2>
+<p class="mt-1 font-body-md text-body-md text-on-surface-variant">
+          Cập nhật thông số mật độ khách, thời gian check-in vàng và chi phí thực tế cho từng điểm đến.
+        </p>
+</div>
+<!-- Quick Filter Tag Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm whitespace-nowrap" type="button">Tất cả</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap" type="button">Bãi biển</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap" type="button">Danh lam biểu tượng</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap" type="button">Lên núi cao</button>
+</div>
+</div>
+<!-- 3 Comprehensive Local Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1: Bãi biển Mỹ Khê -->
+<div class="flex flex-col rounded-lg bg-surface-container-lowest overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+<!-- Media Container -->
+<div class="relative w-full aspect-[16/10] overflow-hidden">
+<img alt="Toàn cảnh bãi biển Mỹ Khê Đà Nẵng bãi cát vàng nắng biển trong vắt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mYr5rd1TjfE68q6xLxdtnxXl2oI7QgJtjvqQBNH8Ix92PXzBQZa5t3pTLt3-jFFNzuWDyeVN1NtF5V0LE10FpTgeLjUeFIvxhFXmiY_kQ7voIBv-x_5QyW-o5CAWG3dxS8J3o_1jxKTbsUTDcUaxKMWHpuLnoUveoGM3Sp3M5VdV-co8trJaUpjeZn-wSxnVdHcKRdbCMmtdCarMs9UYVdBzK4Ht_-V0oAMLYsTAw02PeK1U4Cjr"/>
+<!-- Top Floating Pills -->
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+<span class="px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-label-md text-label-md font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-on-surface-variant font-normal">(1,420)</span>
+</span>
+<button aria-label="Lưu vào danh sách yêu thích" class="pointer-events-auto w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-title-md">favorite</span>
+</button>
+</div>
+<!-- Crowd Level Meter Pill -->
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-low/95 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>Mật độ: Vừa phải (Lý tưởng)</span>
+</span>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm">place</span>
+<span>Quận Ngũ Hành Sơn • Biển & Thể thao nước</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface group-hover:text-primary transition-colors">
+              Bãi Biển Mỹ Khê
+            </h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Được Forbes vinh danh là một trong những bãi biển quyến rũ nhất hành tinh với bãi cát thoai thoải, nước trong và hàng dừa mát rượi.
+            </p>
+</div>
+<!-- Metadata Badges -->
+<div class="mt-6 pt-4 space-y-2.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">schedule</span>
+                Thời điểm đẹp nhất
+              </span>
+<span class="font-semibold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-full">05:30 - 08:30 (Bình minh)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">monetization_on</span>
+                Chi phí vào cửa
+              </span>
+<span class="font-bold text-primary px-2.5 py-1 rounded-full bg-primary/10">Miễn phí hoàn toàn</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Bà Nà Hills & Cầu Vàng -->
+<div class="flex flex-col rounded-lg bg-surface-container-lowest overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+<!-- Media Container -->
+<div class="relative w-full aspect-[16/10] overflow-hidden">
+<img alt="Cầu Vàng Bà Nà Hills nâng đỡ bởi đôi bàn tay khổng lồ phủ rêu phong giữa núi rừng mây mờ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDir-23xcKDOz2-M6qbH2C3x3I2FU_oBh-ox42EvkgkLl6AvqJrHG34Z9MGx1SSP5Endv43gtBbmy6SYjZTmglavFaIx1ViLvRHAaLrziy4zvU6KtLet3Zatex8ImVe7cxUD53eYBftOwHoeLL4hiEq3A-vSsiRoUbcdHqjDk3EHMnZvcrKblUelZudljmFNi4zUOQOjuekORfYVaOAPZXHxd2-m8FefgQ2ZELhA9UB4h-1hgoygtJj"/>
+<!-- Top Floating Pills -->
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+<span class="px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-label-md text-label-md font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+<span class="text-on-surface-variant font-normal">(2,850)</span>
+</span>
+<button aria-label="Lưu vào danh sách yêu thích" class="pointer-events-auto w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-title-md">favorite</span>
+</button>
+</div>
+<!-- Crowd Level Meter Pill -->
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed/90 backdrop-blur-md text-on-secondary-fixed font-label-sm text-label-sm font-bold flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Mật độ: Rất đông (Nên đi sớm)</span>
+</span>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm">place</span>
+<span>Huyện Hòa Vang • Danh thắng Núi Chúa</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface group-hover:text-primary transition-colors">
+              Bà Nà Hills & Cầu Vàng
+            </h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Đôi bàn tay khổng lồ vươn ra giữa tầng mây bạt ngàn, khí hậu 4 mùa trong một ngày và quần thể kiến trúc cổ tích phong cách châu Âu.
+            </p>
+</div>
+<!-- Metadata Badges -->
+<div class="mt-6 pt-4 space-y-2.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">schedule</span>
+                Thời điểm đẹp nhất
+              </span>
+<span class="font-semibold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-full">08:00 - 15:00 (Nắng trong)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">monetization_on</span>
+                Vé cáp treo trọn gói
+              </span>
+<span class="font-bold text-on-surface px-2.5 py-1 rounded-full bg-secondary-fixed/40">~900.000đ / Khách</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Cầu Rồng & Sông Hàn -->
+<div class="flex flex-col rounded-lg bg-surface-container-lowest overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+<!-- Media Container -->
+<div class="relative w-full aspect-[16/10] overflow-hidden">
+<img alt="Cầu Rồng Đà Nẵng bắc ngang sông Hàn uốn lượn dưới trời xanh và cảnh quan đô thị hiện đại" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV6KIrTQ6z_gHzJMSX6vW8akQ4ui3EnEyCuvOp-Z9-BjRwHJs25_8ppa09yMWLdlm4ycMLjXwMQ8x0LVVIXF6Bs97lSZ90AsQsRbpH81tliBsWcjJzeNdPjVBoKWPDmdKoOSe8Ap2pqnJv3oZTWKCircCZWCNlC1L-KW_ey2IpNKo0fBq-TVNuJU_pJ-KGe1YRTIyJW3_XXkI8uiigDRbNfkFRS4L-_x9MZCBRvHP0v1aOnyxOG0lv"/>
+<!-- Top Floating Pills -->
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+<span class="px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-label-md text-label-md font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-on-surface-variant font-normal">(3,100)</span>
+</span>
+<button aria-label="Lưu vào danh sách yêu thích" class="pointer-events-auto w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-error transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-title-md">favorite</span>
+</button>
+</div>
+<!-- Crowd Level Meter Pill -->
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed/90 backdrop-blur-md text-on-secondary-fixed font-label-sm text-label-sm font-bold flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Mật độ: Đông vui náo nhiệt</span>
+</span>
+</div>
+</div>
+<!-- Content -->
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-sm">place</span>
+<span>Quận Hải Châu • Biểu tượng Đà Nẵng</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface group-hover:text-primary transition-colors">
+              Cầu Rồng & Bờ Sông Hàn
+            </h3>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Kỳ quan kiến trúc mô phỏng hình rồng thời Lý hướng ra Biển Đông, rực rỡ màn phun lửa và phun nước độc đáo vào mỗi dịp cuối tuần.
+            </p>
+</div>
+<!-- Metadata Badges -->
+<div class="mt-6 pt-4 space-y-2.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">schedule</span>
+                Thời điểm đẹp nhất
+              </span>
+<span class="font-semibold text-on-surface bg-surface-container-low px-2.5 py-1 rounded-full">20:30 - 21:30 (T7 & CN)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">monetization_on</span>
+                Chi phí trải nghiệm
+              </span>
+<span class="font-bold text-primary px-2.5 py-1 rounded-full bg-primary/10">Miễn phí tham quan</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: TẠO LỊCH TRÌNH THÔNG MINH (Interactive Timeline Engine) -->
+<section class="w-full bg-surface-container-low py-20 relative overflow-hidden">
+<!-- Subtle Coastal Background Wave Decors -->
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest shadow-sm text-primary font-label-md text-label-md mb-3">
+<span class="material-symbols-outlined text-base">route</span>
+<span>DNVIBE Smart Route Engine 2.0</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Lịch trình mẫu 1 Ngày: “Biển Xanh & Phố Đêm”</h2>
+<p class="mt-2 font-body-md text-body-md text-on-surface-variant">
+          Được cá nhân hóa tự động theo thuật toán tính toán mật độ khách và khoảng cách di chuyển ngắn nhất.
+        </p>
+</div>
+<!-- Bento Wrapper: Interactive Timeline + Live Metric Stats -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left: Chronological Trail Stops (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-lg shadow-md space-y-8">
+<!-- Step 1 -->
+<div class="relative flex items-start gap-4 sm:gap-6 group">
+<!-- Timeline Line Connector -->
+<div class="absolute left-4 top-10 bottom-0 w-0.5 bg-primary-fixed -mb-8"></div>
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shrink-0 shadow-sm relative z-10">
+              1
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-bold">06:00 - 08:00</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Thời lượng: 2 tiếng</span>
+</div>
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Đón bình minh tại Bãi biển Mỹ Khê & tắm biển
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Không khí biển buổi sớm trong trẻo, tham gia bơi lội hoặc chạy bộ ngắm các ghe thuyền ngư dân cập bến.
+              </p>
+<!-- Micro Transit Chip -->
+<div class="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">two_wheeler</span>
+<span>Di chuyển 10 phút (3.2 km)</span>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-4 sm:gap-6 group">
+<div class="absolute left-4 top-10 bottom-0 w-0.5 bg-primary-fixed -mb-8"></div>
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shrink-0 shadow-sm relative z-10">
+              2
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-bold">08:30 - 10:00</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Thời lượng: 1.5 tiếng</span>
+</div>
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Thưởng thức Mì Quảng ếch Bếp Trang
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Bát mì Quảng ếch om niêu đất nóng hổi, ăn kèm bánh đa nướng mè giòn và rau sống trà quế tươi ngon.
+              </p>
+<!-- Micro Transit Chip -->
+<div class="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">two_wheeler</span>
+<span>Di chuyển 20 phút (7.8 km)</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-4 sm:gap-6 group">
+<div class="absolute left-4 top-10 bottom-0 w-0.5 bg-primary-fixed -mb-8"></div>
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shrink-0 shadow-sm relative z-10">
+              3
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm font-bold">14:00 - 17:00</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Thời lượng: 3 tiếng</span>
+</div>
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Khám phá Bán đảo Sơn Trà & Chùa Linh Ứng
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Chiêm bái tượng Phật Bà Quan Âm cao 67m hướng biển, tận hưởng làn gió mát lành và ngắm toàn cảnh vịnh Đà Nẵng.
+              </p>
+<!-- Micro Transit Chip -->
+<div class="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">two_wheeler</span>
+<span>Di chuyển 15 phút (6.1 km)</span>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-start gap-4 sm:gap-6 group">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shrink-0 shadow-sm relative z-10">
+              4
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">19:30 - 21:30</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Thời lượng: 2 tiếng</span>
+</div>
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Ngắm Cầu Rồng phun lửa & dạo Chợ đêm Sơn Trà
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Chiêm ngưỡng vũ điệu lửa và nước ngoạn mục lúc 21:00, sau đó sà vào chợ đêm ăn ốc hút, bánh tráng nướng và mua quà lưu niệm.
+              </p>
+</div>
+</div>
+</div>
+<!-- Right: Real-time Stats & Generator Launchpad (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Summary Quick Metrics Card -->
+<div class="p-6 rounded-lg bg-surface-container-lowest shadow-md">
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">insights</span>
+<span>Tổng quan hành trình</span>
+</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Tổng chi phí ước tính</span>
+<span class="font-headline-md text-headline-md font-extrabold text-primary mt-1 block">~350.000đ</span>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">Ăn uống & xăng xe</span>
+</div>
+<div class="p-4 rounded-xl bg-secondary-fixed/40">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Chỉ số thoải mái</span>
+<span class="font-headline-md text-headline-md font-extrabold text-secondary mt-1 block">96 / 100</span>
+<span class="font-label-sm text-label-sm text-secondary block mt-0.5">Tránh nắng & vắng xe</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Tổng quãng đường</span>
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface mt-1 block">18.4 km</span>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">Lộ trình vòng cung ven biển</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Thời gian trải nghiệm</span>
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface mt-1 block">8.5 tiếng</span>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">Nghỉ trưa 2 tiếng</span>
+</div>
+</div>
+<!-- Mini Route Distribution SVG Progress Ring / Bar -->
+<div class="mt-6 pt-5">
+<div class="flex items-center justify-between text-body-sm font-body-sm mb-2">
+<span class="text-on-surface font-semibold">Tỷ lệ trải nghiệm</span>
+<span class="text-primary font-bold">50% Thiên nhiên • 30% Ẩm thực • 20% Phố đêm</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-primary-container" style="width: 50%;"></div>
+<div class="h-full bg-secondary-container" style="width: 30%;"></div>
+<div class="h-full bg-primary" style="width: 20%;"></div>
+</div>
+</div>
+</div>
+<!-- Dynamic CTA Callout Card -->
+<div class="p-8 rounded-lg bg-gradient-to-br from-primary via-primary to-on-primary-container text-on-primary shadow-xl relative overflow-hidden">
+<!-- Ambient SVG Pattern -->
+<svg class="absolute -right-8 -bottom-8 w-44 h-44 opacity-15 pointer-events-none" fill="currentColor" viewbox="0 0 100 100">
+<path d="M0,50 Q25,20 50,50 T100,50 L100,100 L0,100 Z"></path>
+</svg>
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest/20 backdrop-blur-md font-label-sm text-label-sm font-bold uppercase tracking-wider inline-block mb-3">
+              Cá nhân hóa trong 15 giây
+            </span>
+<h3 class="font-headline-md text-headline-md font-bold text-white">
+              Bạn muốn một lịch trình được may đo riêng?
+            </h3>
+<p class="mt-2 font-body-sm text-body-sm text-white/80 leading-relaxed">
+              Chọn giờ hạ cánh máy bay, địa chỉ khách sạn hoặc phong cách của bạn — DNVIBE sẽ tự động sắp xếp điểm dừng thông minh nhất.
+            </p>
+<button class="mt-6 w-full py-4 px-6 rounded-full bg-surface-container-lowest text-primary font-headline-md text-headline-md font-bold shadow-lg hover:bg-surface-container-low transition-all duration-300 flex items-center justify-center gap-2 group active:scale-95" type="button">
+<span>Bắt đầu tạo lịch trình</span>
+<span class="material-symbols-outlined group-hover:translate-x-1.5 transition-transform">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMMUNITY VIBE & REVIEWS BANNER -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 w-full">
+<div class="rounded-lg bg-surface-container-lowest p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="space-y-3 max-w-xl text-left">
+<div class="flex items-center gap-1 text-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Được hơn 45.000+ du khách tin cậy mỗi tháng</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          “Nhờ DNVIBE mà mình chỉ có đúng 5 tiếng quá cảnh ở Đà Nẵng nhưng vừa kịp tắm biển Mỹ Khê, ăn tô Mì Quảng chuẩn vị và ngắm hoàng hôn Sơn Trà tuyệt đẹp mà không bị lố giờ ra sân bay!”
+        </p>
+<div class="flex items-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+            NL
+          </div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">Ngọc Linh</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Du khách từ TP. Hồ Chí Minh</span>
+</div>
+</div>
+</div>
+<div class="shrink-0 flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+<a class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-surface-container-low text-primary hover:bg-surface-container font-label-lg text-label-lg font-bold transition-colors text-center" href="#">
+          Xem 240+ lịch trình chia sẻ
+        </a>
+<a class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg font-bold shadow-md transition-colors text-center" href="#">
+          Lưu bản đồ Offline
+        </a>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low py-12 mt-16"><div class="max-w-7xl mx-auto px-6 lg:px-12"><div class="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-8"><div class="space-y-3 max-w-md"><div class="flex items-center gap-2.5"><img alt="DNVIBE Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XrfeW9rEdIf-K-bxo1q3AAXi8PRP6exzikwiTeJ8EOqZ3AghoPjpP1jZYLiGrbPA0aNC3GjefNbhZAyikI_a3M_LH6Enb1lOl2ohsAMInHDim1vUyECR1jIEEsjQXpgSJh1gg_iAt5GeUjf0TTnxa-aTncc6RFQD7rB2G3UtbtR3LOZhmLLavh-9qce1q48F9NlK6QWa9mR8IarTTH4Fw3CDnrsEZTVzkEcRpdmAmfoz5j32TpwhoYIF0"/><span class="font-headline-md text-headline-md font-bold text-primary">DNVIBE</span></div><p class="font-body-md text-body-md text-on-surface-variant">Khám phá Đà Nẵng thông minh, sống trọn từng khoảnh khắc ven biển.</p></div><nav class="flex flex-wrap items-center gap-6 font-label-lg text-label-lg text-on-surface-variant"><a class="hover:text-primary transition-colors" data-path="kham-pha" href="#">Khám phá</a><a class="hover:text-primary transition-colors" data-path="lich-trinh" href="#">Lịch trình mẫu</a><a class="hover:text-primary transition-colors" data-path="ban-do" href="#">Bản đồ điểm đến</a><a class="hover:text-primary transition-colors" data-path="ho-tro" href="#">Hỗ trợ du khách</a></nav></div><div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-on-surface-variant/80 font-body-sm text-body-sm"><p>© 2025 DNVIBE. Nền tảng du lịch thông minh Đà Nẵng. Lan tỏa cảm hứng biển cả.</p><div class="flex items-center gap-2 text-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-base">sailing</span><span>Chào đón bạn tới thành phố biển đáng sống</span></div></div></div></footer></body></html>

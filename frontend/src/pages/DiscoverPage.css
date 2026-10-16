@@ -1,0 +1,101 @@
+/* VISTA Discover Page Styles - Coastal Sunlight Modernism */
+
+.vista-discover-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--dnvibe-surface);
+  position: relative;
+}
+
+.vista-discover-main {
+  padding-bottom: 72px;
+}
+
+/* ==========================================================================
+   SPLIT LAYOUT (DESKTOP: 46% LIST / 54% MAP)
+   ========================================================================== */
+
+.vista-discover-split {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .vista-discover-split {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    gap: 28px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .vista-discover-split {
+    grid-template-columns: 46% 54%;
+    gap: 32px;
+  }
+}
+
+.vista-discover-split__left {
+  width: 100%;
+}
+
+.vista-discover-split__right {
+  width: 100%;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & TOGGLE
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  .vista-discover-split__left--hidden-mobile {
+    display: none;
+  }
+
+  .vista-discover-split__right--hidden-mobile {
+    display: none;
+  }
+}
+
+.vista-discover-mobile-toggle {
+  display: block;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 80;
+  pointer-events: auto;
+}
+
+@media (min-width: 1024px) {
+  .vista-discover-mobile-toggle {
+    display: none;
+  }
+}
+
+.vista-discover-mobile-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--dnvibe-radius-pill);
+  background: linear-gradient(135deg, #17323a 0%, #006a68 100%);
+  color: #ffffff;
+  font-family: var(--dnvibe-font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(2, 31, 38, 0.35);
+  cursor: pointer;
+  transition: all var(--dnvibe-transition-fast);
+  white-space: nowrap;
+}
+
+.vista-discover-mobile-toggle__btn:hover {
+  transform: scale(1.04);
+  background: linear-gradient(135deg, #006a68 0%, #25b7b5 100%);
+}

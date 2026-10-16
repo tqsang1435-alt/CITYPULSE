@@ -1,0 +1,899 @@
+/* ==========================================================================
+   VISTA COASTAL MAP PANEL - DA NANG DISCOVERY
+   Coastal Sunlight Modernism Design System
+   ========================================================================== */
+
+.vista-map-panel {
+  position: sticky;
+  top: 96px;
+  width: 100%;
+  height: calc(100vh - 190px);
+  min-height: 580px;
+  max-height: 840px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1.5px solid rgba(195, 232, 230, 0.9);
+  box-shadow: 0 12px 40px -6px rgba(2, 31, 38, 0.1);
+  background-color: #e8f6f6;
+  user-select: none;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-map-panel--satellite {
+  background-color: #0b2532;
+  border-color: rgba(30, 60, 75, 0.8);
+}
+
+.vista-map-panel--fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  z-index: 9999 !important;
+  border: none !important;
+}
+
+/* ==========================================================================
+   VIEWPORT & VECTOR CANVAS
+   ========================================================================== */
+
+.vista-map-viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.vista-map-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   LANDMARK PILLS
+   ========================================================================== */
+
+.vista-map-landmark {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.vista-map-landmark__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(215, 238, 238, 0.95);
+  box-shadow: 0 3px 10px rgba(2, 31, 38, 0.08);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #021f26;
+  white-space: nowrap;
+}
+
+.vista-map-panel--satellite .vista-map-landmark__badge {
+  background-color: rgba(15, 34, 43, 0.92);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #e2f7ff;
+}
+
+.vista-map-landmark__icon {
+  font-size: 14px;
+  color: #006a68;
+}
+
+.vista-map-panel--satellite .vista-map-landmark__icon {
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   MAP PINS (MODERN COASTAL FLOATING PILLS)
+   ========================================================================== */
+
+.vista-map-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 22;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), z-index 0ms;
+  outline: none;
+}
+
+.vista-map-pin:hover {
+  transform: translate(-50%, -106%) scale(1.06);
+  z-index: 32;
+}
+
+.vista-map-pin--selected {
+  transform: translate(-50%, -106%) scale(1.1);
+  z-index: 35;
+}
+
+/* Pin Badge Container */
+.vista-map-pin__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(210, 236, 234, 0.95);
+  box-shadow: 0 4px 18px rgba(2, 31, 38, 0.12);
+  color: #021f26;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 180ms ease;
+}
+
+.vista-map-pin__icon {
+  font-size: 14.5px;
+  color: #006a68;
+  transition: color 180ms ease;
+}
+
+.vista-map-pin__name {
+  line-height: 1.2;
+}
+
+.vista-map-pin__rating {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1.5px 6px;
+  border-radius: 9999px;
+  background-color: rgba(254, 190, 70, 0.28);
+  color: #7d5700;
+  transition: all 180ms ease;
+}
+
+/* Pin Downward Pointer Nib */
+.vista-map-pin__nib {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.96);
+  transform: rotate(45deg);
+  margin-top: -4px;
+  box-shadow: 2px 2px 4px rgba(2, 31, 38, 0.08);
+  transition: background-color 180ms ease;
+}
+
+/* Hover State */
+.vista-map-pin:hover .vista-map-pin__badge {
+  background-color: #006a68;
+  color: #ffffff;
+  border-color: #006a68;
+  box-shadow: 0 6px 20px rgba(0, 106, 104, 0.35);
+}
+
+.vista-map-pin:hover .vista-map-pin__icon {
+  color: #ffffff;
+}
+
+.vista-map-pin:hover .vista-map-pin__rating {
+  background-color: #febe46;
+  color: #271900;
+}
+
+.vista-map-pin:hover .vista-map-pin__nib {
+  background-color: #006a68;
+}
+
+/* Selected State */
+.vista-map-pin--selected .vista-map-pin__badge {
+  background: linear-gradient(135deg, #007a78 0%, #005654 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 26px rgba(0, 106, 104, 0.4);
+}
+
+.vista-map-pin--selected .vista-map-pin__icon {
+  color: #ffffff;
+}
+
+.vista-map-pin--selected .vista-map-pin__rating {
+  background-color: #febe46;
+  color: #271900;
+}
+
+.vista-map-pin--selected .vista-map-pin__nib {
+  background-color: #005654;
+}
+
+/* Selected Pin Animated Pulse Ring */
+.vista-map-pin__pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: rgba(37, 183, 181, 0.32);
+  animation: vista-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes vista-ping {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.9;
+  }
+  75%, 100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   POPUP CARD OVERLAY (SELECTED DESTINATION)
+   ========================================================================== */
+
+.vista-map-popup {
+  position: absolute;
+  z-index: 40;
+  pointer-events: auto;
+}
+
+.vista-map-popup--left {
+  transform: translate(calc(-100% - 14px), -50%);
+  animation: vista-pop-in-left 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-map-popup--right {
+  transform: translate(14px, -50%);
+  animation: vista-pop-in-right 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-map-popup--below-pin {
+  transform: translate(-38%, 14px);
+  animation: vista-pop-in-below 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vista-map-popup--above {
+  transform: translate(-50%, calc(-100% - 14px));
+  animation: vista-pop-in-above 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes vista-pop-in-below {
+  from {
+    opacity: 0;
+    transform: translate(-38%, 6px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-38%, 14px) scale(1);
+  }
+}
+
+@keyframes vista-pop-in-above {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 6px)) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 14px)) scale(1);
+  }
+}
+
+@keyframes vista-pop-in-left {
+  from {
+    opacity: 0;
+    transform: translate(calc(-100% - 14px), -44%) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(calc(-100% - 14px), -50%) scale(1);
+  }
+}
+
+@keyframes vista-pop-in-right {
+  from {
+    opacity: 0;
+    transform: translate(14px, -44%) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(14px, -50%) scale(1);
+  }
+}
+
+.vista-map-popup__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 11px 13px;
+  border-radius: 20px;
+  border: 1px solid rgba(210, 238, 236, 0.9);
+  box-shadow: 0 16px 42px -6px rgba(2, 31, 38, 0.18), 0 2px 8px rgba(2, 31, 38, 0.04);
+  width: 310px;
+  max-width: 90vw;
+  position: relative;
+}
+
+.vista-map-panel--satellite .vista-map-popup__inner {
+  background: rgba(14, 33, 42, 0.97);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 16px 42px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Thumbnail with Distance Badge */
+.vista-map-popup__thumb-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 13px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #e2f7ff;
+  box-shadow: 0 2px 8px rgba(2, 31, 38, 0.1);
+}
+
+.vista-map-popup__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vista-map-popup__dist-badge {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  padding: 1px 4.5px;
+  border-radius: 4px;
+  background-color: rgba(19, 52, 60, 0.85);
+  color: #ffffff;
+  font-size: 8.5px;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+}
+
+/* Details Body */
+.vista-map-popup__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.vista-map-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.vista-map-popup__title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #021f26;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.vista-map-panel--satellite .vista-map-popup__title {
+  color: #ffffff;
+}
+
+.vista-map-popup__close-btn {
+  background: transparent;
+  border: none;
+  color: #6c7a79;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 150ms ease;
+}
+
+.vista-map-popup__close-btn:hover {
+  color: #ba1a1a;
+}
+
+.vista-map-popup__meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 3px 0 5px;
+  font-size: 11px;
+}
+
+.vista-map-popup__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.vista-map-popup__rating .material-symbols-outlined {
+  color: #febe46 !important;
+  font-size: 13px;
+}
+
+.vista-map-popup__score {
+  font-weight: 700;
+  color: #021f26;
+}
+
+.vista-map-panel--satellite .vista-map-popup__score {
+  color: #ffffff;
+}
+
+.vista-map-popup__count {
+  color: #6c7a79;
+  font-size: 10px;
+}
+
+.vista-map-popup__separator {
+  color: #bbc9c8;
+  font-size: 10px;
+}
+
+.vista-map-popup__district {
+  color: #006a68;
+  font-weight: 600;
+  font-size: 10.5px;
+}
+
+.vista-map-panel--satellite .vista-map-popup__district {
+  color: #38bdf8;
+}
+
+/* Tags */
+.vista-map-popup__tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.vista-map-popup__tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 2px 7.5px;
+  border-radius: 9999px;
+  background-color: #e2f7f6;
+  border: 1px solid rgba(37, 183, 181, 0.28);
+  color: #006a68;
+  line-height: 1.2;
+}
+
+.vista-map-panel--satellite .vista-map-popup__tag {
+  background-color: rgba(37, 183, 181, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #77f6f3;
+}
+
+/* Circular Arrow CTA Button */
+.vista-map-popup__cta-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25b7b5 0%, #006a68 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(37, 183, 181, 0.35);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease;
+}
+
+.vista-map-popup__cta-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(0, 106, 104, 0.45);
+}
+
+/* Pointer Arrow Nib */
+.vista-map-popup__pointer-nib {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.98);
+  transform: translateY(-50%) rotate(45deg);
+  border: 1px solid rgba(210, 238, 236, 0.9);
+}
+
+.vista-map-popup--left .vista-map-popup__pointer-nib {
+  right: -5px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.vista-map-popup--right .vista-map-popup__pointer-nib {
+  left: -5px;
+  border-right: none;
+  border-top: none;
+}
+
+.vista-map-popup--below-pin .vista-map-popup__pointer-nib {
+  top: -5px;
+  left: 38%;
+  transform: translateX(-50%) rotate(45deg);
+  border-bottom: none;
+  border-right: none;
+}
+
+.vista-map-popup--above .vista-map-popup__pointer-nib {
+  bottom: -5px;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-top: none;
+  border-left: none;
+}
+
+.vista-map-panel--satellite .vista-map-popup__pointer-nib {
+  background-color: rgba(14, 33, 42, 0.97);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* ==========================================================================
+   MAP CONTROLS
+   ========================================================================== */
+
+/* Top-Right Cluster */
+.vista-map-controls__top-right {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 25;
+}
+
+.vista-map-type-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(2, 31, 38, 0.08);
+  border: 1px solid rgba(215, 238, 238, 0.95);
+}
+
+.vista-map-panel--satellite .vista-map-type-toggle {
+  background-color: rgba(15, 34, 43, 0.92);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.vista-map-type-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #3c4949;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.vista-map-panel--satellite .vista-map-type-btn {
+  color: #cbe7f2;
+}
+
+.vista-map-type-btn--active {
+  background-color: #006a68;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 106, 104, 0.3);
+}
+
+.vista-map-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vista-map-ctrl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #021f26;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.vista-map-ctrl-btn--circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(215, 238, 238, 0.95);
+  box-shadow: 0 4px 14px rgba(2, 31, 38, 0.08);
+  color: #006a68;
+}
+
+.vista-map-panel--satellite .vista-map-ctrl-btn--circle {
+  background-color: rgba(15, 34, 43, 0.92);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+}
+
+.vista-map-ctrl-btn--circle:hover {
+  background-color: #ffffff;
+  color: #004242;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(2, 31, 38, 0.12);
+}
+
+/* Bottom-Right Zoom & Locate Cluster */
+.vista-map-controls__bottom-right {
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 25;
+}
+
+.vista-map-zoom-group {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(2, 31, 38, 0.1);
+  border: 1px solid rgba(215, 238, 238, 0.95);
+  overflow: hidden;
+}
+
+.vista-map-panel--satellite .vista-map-zoom-group {
+  background-color: rgba(15, 34, 43, 0.92);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.vista-map-zoom-btn {
+  width: 38px;
+  height: 38px;
+  color: #021f26;
+}
+
+.vista-map-panel--satellite .vista-map-zoom-btn {
+  color: #e2f7ff;
+}
+
+.vista-map-zoom-btn:hover {
+  background-color: #e2f7ff;
+  color: #006a68;
+}
+
+.vista-map-zoom-divider {
+  width: 24px;
+  height: 1px;
+  background-color: rgba(215, 238, 238, 0.9);
+  margin: 0 auto;
+}
+
+.vista-map-panel--satellite .vista-map-zoom-divider {
+  background-color: rgba(56, 189, 248, 0.25);
+}
+
+/* Bottom-Left Scale Indicator */
+.vista-map-controls__bottom-left {
+  position: absolute;
+  bottom: 20px;
+  left: 18px;
+  z-index: 25;
+}
+
+.vista-map-scale {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 9px;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(215, 238, 238, 0.9);
+  box-shadow: 0 2px 8px rgba(2, 31, 38, 0.06);
+}
+
+.vista-map-panel--satellite .vista-map-scale {
+  background-color: rgba(15, 34, 43, 0.88);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.vista-map-scale__bar {
+  width: 68px;
+  height: 3px;
+  border-left: 1.5px solid #021f26;
+  border-right: 1.5px solid #021f26;
+  border-bottom: 2px solid #021f26;
+}
+
+.vista-map-panel--satellite .vista-map-scale__bar {
+  border-left-color: #38bdf8;
+  border-right-color: #38bdf8;
+  border-bottom-color: #38bdf8;
+}
+
+.vista-map-scale__labels {
+  display: flex;
+  justify-content: space-between;
+  width: 68px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #021f26;
+  margin-top: 2px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.vista-map-panel--satellite .vista-map-scale__labels {
+  color: #cbe7f2;
+}
+
+/* Bottom Center Explore Around Card */
+.vista-map-controls__bottom-center {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+}
+
+.vista-map-explore-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 6px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(2, 31, 38, 0.12);
+  border: 1px solid rgba(215, 238, 238, 0.95);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  white-space: nowrap;
+}
+
+.vista-map-panel--satellite .vista-map-explore-chip {
+  background-color: rgba(15, 34, 43, 0.94);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.vista-map-explore-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 31, 38, 0.16);
+}
+
+.vista-map-explore-chip__img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 1px 4px rgba(2, 31, 38, 0.15);
+}
+
+.vista-map-explore-chip__text {
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  line-height: 1.2;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.vista-map-explore-chip__text span {
+  color: #3c4949;
+  font-weight: 500;
+}
+
+.vista-map-panel--satellite .vista-map-explore-chip__text span {
+  color: #cbe7f2;
+}
+
+.vista-map-explore-chip__text strong {
+  color: #006a68;
+  font-weight: 700;
+}
+
+.vista-map-panel--satellite .vista-map-explore-chip__text strong {
+  color: #77f6f3;
+}
+
+.vista-map-explore-chip__chevron {
+  font-size: 16px;
+  color: #006a68;
+}
+
+.vista-map-panel--satellite .vista-map-explore-chip__chevron {
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .vista-map-panel {
+    height: 520px;
+    min-height: 500px;
+  }
+
+  .vista-map-controls__bottom-center {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .vista-map-panel {
+    position: relative;
+    top: 0;
+    height: 480px;
+    min-height: 440px;
+    border-radius: 20px;
+  }
+
+  .vista-map-popup {
+    left: 50% !important;
+    top: auto !important;
+    bottom: 74px !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .vista-map-popup__inner {
+    width: 290px;
+    padding: 9px 11px;
+  }
+
+  .vista-map-popup__pointer-nib {
+    display: none;
+  }
+
+  .vista-map-controls__bottom-left {
+    display: none;
+  }
+
+  .vista-map-controls__bottom-center {
+    display: none;
+  }
+}
