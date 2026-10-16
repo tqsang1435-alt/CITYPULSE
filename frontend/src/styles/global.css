@@ -20,6 +20,7 @@ a { color: inherit; text-decoration: none; }
 .wordmark span { font-size: .55rem; vertical-align: top; margin-left: 3px; letter-spacing: 0; }
 .header nav { display: flex; gap: clamp(14px, 2.6vw, 36px); font-size: .78rem; color: #55584f; }
 .header-cta { border: 1px solid #bfc2b7; border-radius: 99px; padding: 10px 16px; font-size: .76rem; }
+.header-cta-button { color: inherit; background: transparent; cursor: pointer; }
 .hero { min-height: 650px; padding: clamp(85px, 12vw, 155px) 0 35px; display: flex; flex-direction: column; align-items: flex-start; }
 .eyebrow { font-size: .67rem; font-weight: 750; letter-spacing: .15em; color: #6c7f26; }
 .hero h1, .placeholder h1 { margin: 30px 0 25px; font-size: clamp(3.4rem, 8.5vw, 8.3rem); line-height: .93; letter-spacing: -.09em; font-weight: 620; }
@@ -45,12 +46,41 @@ footer { display: flex; justify-content: space-between; border-top: 1px solid va
 .placeholder h1 { font-size: clamp(3.2rem, 8vw, 7rem); }
 .placeholder > p:not(.eyebrow) { color: var(--muted); line-height: 1.7; }
 .placeholder > a:last-child { display: inline-block; margin-top: 24px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+.workspace-page { max-width: 1120px; min-height: 100vh; padding: 32px 6%; margin: auto; }
+.workspace-header { display: flex; align-items: center; justify-content: space-between; min-height: 54px; border-bottom: 1px solid var(--line); }
+.workspace-content { padding: 72px 0; }
+.workspace-content h1, .workspace-card h1 { margin: 20px 0 12px; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1; letter-spacing: -.075em; font-weight: 620; }
+.workspace-card { max-width: 620px; margin: 12vh auto; padding: clamp(24px, 5vw, 54px); border: 1px solid var(--line); background: #fbfbf7; }
+.auth-card { max-width: 520px; }
+.workspace-muted, .workspace-empty { color: var(--muted); line-height: 1.7; }
+.workspace-form { display: grid; gap: 18px; margin-top: 28px; }
+.workspace-form label, .trip-create-form label { display: grid; gap: 8px; font-size: .8rem; font-weight: 650; }
+.workspace-form input, .workspace-inline-form input { width: 100%; min-height: 46px; border: 1px solid #c9ccc1; border-radius: 2px; padding: 10px 12px; color: var(--ink); background: white; font: inherit; }
+.workspace-form .btn { justify-content: center; cursor: pointer; }
+.workspace-form .btn:disabled { opacity: .6; cursor: wait; }
+.workspace-error { color: #a33c2c; line-height: 1.55; }
+.workspace-switch { display: block; margin-top: 22px; color: var(--muted); font-size: .84rem; }
+.workspace-switch a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.workspace-back { color: var(--muted); font-size: .8rem; }
+.workspace-card > .btn { margin-top: 12px; }
+.trip-create-form { max-width: 720px; display: grid; gap: 10px; margin: 34px 0; font-size: .8rem; font-weight: 650; }
+.workspace-inline-form { display: flex; gap: 10px; }
+.workspace-inline-form .btn { flex: 0 0 auto; cursor: pointer; }
+.trip-workspace { display: grid; grid-template-columns: minmax(200px, .75fr) minmax(0, 1.25fr); gap: 30px; align-items: start; margin-top: 30px; }
+.trip-list { display: grid; gap: 8px; }
+.trip-list-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px; border: 1px solid var(--line); text-align: left; color: var(--ink); background: transparent; cursor: pointer; }
+.trip-list-item.is-selected { border-color: var(--ink); background: #eff0e8; }
+.trip-list-item span:first-child { overflow-wrap: anywhere; }
 @media (max-width: 760px) {
   .site-shell { padding: 0 6%; }
   .header { height: 72px; }
   .header nav { display: none; }
   .hero { min-height: 620px; padding-top: 100px; }
   .hero h1 { font-size: clamp(3.2rem, 14vw, 5.6rem); }
+  .workspace-content { padding-top: 48px; }
+  .trip-workspace { grid-template-columns: 1fr; gap: 24px; }
+  .workspace-inline-form { align-items: stretch; flex-direction: column; }
+  .workspace-inline-form .btn { justify-content: center; }
   .feature-list { grid-template-columns: 1fr; }
   .feature-list article, .feature-list article + article { border-left: 0; padding: 25px 0; }
   .feature-list article + article { border-top: 1px solid var(--line); }

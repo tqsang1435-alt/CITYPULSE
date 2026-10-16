@@ -12,6 +12,8 @@ node_modules/
 dist/
 .vite/
 coverage/
+*.tsbuildinfo
+.tsupgrader/
 # IDE / OS
 .idea/
 .vscode/

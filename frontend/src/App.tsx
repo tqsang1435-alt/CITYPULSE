@@ -1,6 +1,25 @@
+import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import AuthPage from "./features/auth/components/AuthPage";
+import { logout } from "./features/auth/services/authService";
+import TripsPage from "./features/trips/components/TripsPage";
+import { getAuthToken } from "./lib/apiClient";
 
 function HomePage() {
+  const [signedIn, setSignedIn] = useState(Boolean(getAuthToken()));
+  const [error, setError] = useState("");
+
+  async function handleLogout() {
+    setError("");
+    try {
+      await logout();
+      setSignedIn(false);
+    } catch {
+      setSignedIn(false);
+      setError("Đã đăng xuất trên thiết bị này nhưng chưa thể thu hồi phiên trên máy chủ.");
+    }
+  }
+
   return (
     <main className="site-shell">
       <header className="header">
@@ -11,8 +30,15 @@ function HomePage() {
           <Link to="/trips">Chuyến đi</Link>
           <Link to="/community">Cộng đồng</Link>
         </nav>
-        <Link to="/login" className="header-cta">Đăng nhập ↗</Link>
+        {signedIn ? (
+          <button type="button" className="header-cta header-cta-button" onClick={() => void handleLogout()}>
+            Đăng xuất
+          </button>
+        ) : (
+          <Link to="/login" className="header-cta">Đăng nhập ↗</Link>
+        )}
       </header>
+      {error && <p className="workspace-error" role="alert">{error}</p>}
       <section className="hero">
         <p className="eyebrow">DA NANG · LOCAL DISCOVERY PLATFORM</p>
         <h1>Một thành phố.<br /><em>Ngàn cách khám phá.</em></h1>
@@ -42,9 +68,10 @@ export default function App() {
     <Route path="/" element={<HomePage />} />
     <Route path="/places" element={<PlaceholderPage title="Khám phá địa điểm" />} />
     <Route path="/routes" element={<PlaceholderPage title="Tuyến khám phá" />} />
-    <Route path="/trips" element={<PlaceholderPage title="Chuyến đi của tôi" />} />
+    <Route path="/trips" element={<TripsPage />} />
     <Route path="/community" element={<PlaceholderPage title="Cộng đồng" />} />
-    <Route path="/login" element={<PlaceholderPage title="Đăng nhập CITYPULSE" />} />
+    <Route path="/login" element={<AuthPage mode="login" />} />
+    <Route path="/register" element={<AuthPage mode="register" />} />
     <Route path="*" element={<PlaceholderPage title="Không tìm thấy trang" />} />
   </Routes>;
 }

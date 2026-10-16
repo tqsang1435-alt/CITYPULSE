@@ -1,0 +1,194 @@
+/* SendInvitationForm.css — theo design tokens của CITYPULSE (global.css) */
+
+.inv-form-wrap {
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+  max-width: 560px;
+}
+
+.inv-form-tag {
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  font-weight: 650;
+}
+
+.inv-form-title {
+  font-size: 1.55rem;
+  letter-spacing: -0.055em;
+  font-weight: 680;
+  margin: 16px 0 8px;
+}
+
+.inv-form-desc {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+/* ── Form fields ── */
+
+.inv-form { display: flex; flex-direction: column; gap: 10px; }
+
+.inv-field { display: flex; flex-direction: column; gap: 8px; }
+
+.inv-label {
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.inv-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.inv-input {
+  flex: 1;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 11px 14px;
+  font-size: 0.86rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.inv-input:focus {
+  border-color: var(--ink);
+}
+
+.inv-input[aria-invalid="true"] {
+  border-color: #c0392b;
+}
+
+.inv-input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Primary button ── */
+
+.inv-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  padding: 11px 18px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.inv-btn-primary:hover:not(:disabled) {
+  opacity: 0.82;
+}
+
+.inv-btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.inv-btn-primary--loading {
+  pointer-events: none;
+}
+
+/* ── Spinner ── */
+
+.inv-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: inv-spin 0.6s linear infinite;
+}
+
+@keyframes inv-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error message ── */
+
+.inv-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+/* ── Success feedback ── */
+
+.inv-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  background: #f9fbf0;
+}
+
+.inv-feedback--success {
+  border-color: #b5cc6e;
+}
+
+.inv-feedback-icon {
+  font-size: 1.1rem;
+  color: #6c7f26;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.inv-feedback-title {
+  font-weight: 680;
+  font-size: 0.88rem;
+  margin: 0 0 4px;
+}
+
+.inv-feedback-detail {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.65;
+}
+
+.inv-btn-text {
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+
+.inv-btn-text:hover {
+  border-bottom-color: var(--ink);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 480px) {
+  .inv-input-row {
+    flex-direction: column;
+  }
+  .inv-btn-primary {
+    justify-content: center;
+  }
+  .inv-feedback {
+    flex-wrap: wrap;
+  }
+}
