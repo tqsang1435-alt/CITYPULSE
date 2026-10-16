@@ -1,5 +1,7 @@
 package com.citypulse.common.security;
 
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -21,7 +23,7 @@ public interface CurrentUserProvider {
      */
     default UUID requireCurrentUserId() {
         return getCurrentUserId()
-            .orElseThrow(() -> new IllegalStateException("Authentication required: current user context not available."));
+            .orElseThrow(() -> new AuthenticationCredentialsNotFoundException("Authentication required: current user context not available."));
     }
 }
 

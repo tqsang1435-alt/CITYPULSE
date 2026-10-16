@@ -1,41 +1,41 @@
 package com.citypulse.common.security;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import com.citypulse.security.UserPrincipal;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 import java.util.UUID;
 
 /**
- * Interim implementation of CurrentUserProvider for standalone TV2 development and testing
- * before TV1's authentication and SecurityContext integration is completed.
- *
- * NOTE: This will be replaced by TV1's SecurityContext/JWT-based provider in production integration.
+ * Implementation of CurrentUserProvider that integrates with Spring Security's UserPrincipal.
+ * In production, only authenticated requests with a valid UserPrincipal are permitted.
+ * For isolated testing without SecurityContext, a test user ID can be explicitly injected.
  */
 @Component
 public class InterimCurrentUserProvider implements CurrentUserProvider {
 
-    /**
-     * Development user ID used when security context is not yet populated by TV1 Auth.
-     */
-    public static final UUID DEV_FALLBACK_USER_ID = UUID.fromString("00000000-0000-0000-0000-000000000001");
-
-    private UUID activeUserId = DEV_FALLBACK_USER_ID;
+    private UUID mockUserId = null;
 
     @Override
     public Optional<UUID> getCurrentUserId() {
-        return Optional.ofNullable(activeUserId);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated() && auth.getPrincipal() instanceof UserPrincipal principal) {
+            return Optional.ofNullable(principal.getId());
+        }
+        return Optional.ofNullable(mockUserId);
     }
 
     /**
-     * Allows test suites to switch user context during tests.
+     * Allows test suites to configure a mock user context during isolated tests.
      */
-    public void setActiveUserId(UUID userId) {
-        this.activeUserId = userId;
+    public void setMockUserIdForTesting(UUID userId) {
+        this.mockUserId = userId;
     }
 
-    public void resetToDefault() {
-        this.activeUserId = DEV_FALLBACK_USER_ID;
+    public void clearMockUserId() {
+        this.mockUserId = null;
     }
 }
 
