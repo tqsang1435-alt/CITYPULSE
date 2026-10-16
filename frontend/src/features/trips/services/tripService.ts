@@ -1,8 +1,7 @@
 /**
  * Trip & Stop Service - API client contracts for DNVIBE / CITYPULSE
  */
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080/api/v1";
+import { apiGet, apiPost, apiPut, apiPatch, apiDelete } from "../../../lib/apiClient";
 
 export type TripStatus = "DRAFT" | "ACTIVE" | "COMPLETED" | "ARCHIVED";
 
@@ -82,100 +81,50 @@ export interface ReorderStopsRequest {
   }>;
 }
 
-async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      ...(options?.headers || {})
-    },
-    ...options
-  });
-
-  if (!response.ok) {
-    let errorDetail = `Status ${response.status}`;
-    try {
-      const errJson = await response.json();
-      if (errJson?.message) errorDetail = errJson.message;
-    } catch {
-      // ignore
-    }
-    throw new Error(`API error: ${errorDetail}`);
-  }
-
-  if (response.status === 204) {
-    return undefined as unknown as T;
-  }
-
-  return response.json() as Promise<T>;
-}
-
 export const tripService = {
   listTrips(status?: TripStatus): Promise<TripResponse[]> {
     const query = status ? `?status=${status}` : "";
-    return request<TripResponse[]>(`/trips${query}`);
+    return apiGet<TripResponse[]>(`/trips${query}`);
   },
 
   getTrip(tripId: string): Promise<TripDetailResponse> {
-    return request<TripDetailResponse>(`/trips/${tripId}`);
+    return apiGet<TripDetailResponse>(`/trips/${tripId}`);
   },
 
   createTrip(req: CreateTripRequest): Promise<TripDetailResponse> {
-    return request<TripDetailResponse>("/trips", {
-      method: "POST",
-      body: JSON.stringify(req)
-    });
+    return apiPost<TripDetailResponse>("/trips", req);
   },
 
   updateTrip(tripId: string, req: UpdateTripRequest): Promise<TripDetailResponse> {
-    return request<TripDetailResponse>(`/trips/${tripId}`, {
-      method: "PUT",
-      body: JSON.stringify(req)
-    });
+    return apiPut<TripDetailResponse>(`/trips/${tripId}`, req);
   },
 
   archiveTrip(tripId: string): Promise<TripResponse> {
-    return request<TripResponse>(`/trips/${tripId}/archive`, {
-      method: "PATCH"
-    });
+    return apiPatch<TripResponse>(`/trips/${tripId}/archive`);
   },
 
   restoreTrip(tripId: string): Promise<TripResponse> {
-    return request<TripResponse>(`/trips/${tripId}/restore`, {
-      method: "PATCH"
-    });
+    return apiPatch<TripResponse>(`/trips/${tripId}/restore`);
   },
 
   deleteTrip(tripId: string): Promise<void> {
-    return request<void>(`/trips/${tripId}`, {
-      method: "DELETE"
-    });
+    return apiDelete<void>(`/trips/${tripId}`);
   },
 
   addStop(tripId: string, req: CreateTripStopRequest): Promise<TripStopResponse> {
-    return request<TripStopResponse>(`/trips/${tripId}/stops`, {
-      method: "POST",
-      body: JSON.stringify(req)
-    });
+    return apiPost<TripStopResponse>(`/trips/${tripId}/stops`, req);
   },
 
   updateStop(tripId: string, stopId: string, req: UpdateTripStopRequest): Promise<TripStopResponse> {
-    return request<TripStopResponse>(`/trips/${tripId}/stops/${stopId}`, {
-      method: "PUT",
-      body: JSON.stringify(req)
-    });
+    return apiPut<TripStopResponse>(`/trips/${tripId}/stops/${stopId}`, req);
   },
 
   deleteStop(tripId: string, stopId: string): Promise<void> {
-    return request<void>(`/trips/${tripId}/stops/${stopId}`, {
-      method: "DELETE"
-    });
+    return apiDelete<void>(`/trips/${tripId}/stops/${stopId}`);
   },
 
   reorderStops(tripId: string, req: ReorderStopsRequest): Promise<TripDetailResponse> {
-    return request<TripDetailResponse>(`/trips/${tripId}/stops/reorder`, {
-      method: "PUT",
-      body: JSON.stringify(req)
-    });
+    return apiPut<TripDetailResponse>(`/trips/${tripId}/stops/reorder`, req);
   }
 };
+
