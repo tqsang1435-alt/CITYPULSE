@@ -6,6 +6,7 @@ import com.citypulse.user.entity.UserStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -19,10 +20,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
+@EnabledIf("isDatabaseAvailable")
 class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
+
+    static boolean isDatabaseAvailable() {
+        try (var socket = new java.net.Socket()) {
+            socket.connect(new java.net.InetSocketAddress("127.0.0.1", 5432), 1000);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     @BeforeEach
     void setUp() {

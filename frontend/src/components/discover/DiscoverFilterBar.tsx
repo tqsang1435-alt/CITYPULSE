@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./DiscoverFilterBar.css";
 
 export interface FilterState {
+  search: string;
   district: string;
   price: string;
   status: string;
@@ -19,6 +20,7 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
   onViewMapClick,
 }) => {
   const defaultFilters: FilterState = {
+    search: "",
     district: "all",
     price: "all",
     status: "all",
@@ -28,7 +30,7 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
 
   const [filters, setFilters] = useState<FilterState>(defaultFilters);
 
-  const handleSelectChange = (key: keyof FilterState, value: string) => {
+  const handleFieldChange = (key: keyof FilterState, value: string) => {
     const updated = { ...filters, [key]: value };
     setFilters(updated);
     if (onFilterChange) {
@@ -46,8 +48,41 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
   return (
     <div className="vista-filter-bar-wrapper dnvibe-container">
       <div className="vista-filter-bar">
-        {/* 5 HORIZONTAL FILTER UNITS */}
+        {/* HORIZONTAL FILTER UNITS */}
         <div className="vista-filter-bar__items">
+          {/* 0. TÌM KIẾM */}
+          <div className="vista-filter-item">
+            <div className="vista-filter-item__icon-wrap">
+              <span className="material-symbols-outlined text-primary">search</span>
+            </div>
+            <div className="vista-filter-item__content">
+              <label htmlFor="filter-search" className="vista-filter-item__label">
+                Tìm kiếm
+              </label>
+              <div className="vista-filter-item__select-wrap">
+                <input
+                  id="filter-search"
+                  type="text"
+                  placeholder="Tên, biển, chợ..."
+                  value={filters.search}
+                  onChange={(e) => handleFieldChange("search", e.target.value)}
+                  style={{
+                    border: "none",
+                    background: "transparent",
+                    outline: "none",
+                    fontFamily: "var(--dnvibe-font-sans)",
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    color: "var(--dnvibe-text-primary)",
+                    width: "120px",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="vista-filter-bar__divider" aria-hidden="true" />
+
           {/* 1. KHU VỰC */}
           <div className="vista-filter-item">
             <div className="vista-filter-item__icon-wrap">
@@ -61,7 +96,7 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
                 <select
                   id="filter-district"
                   value={filters.district}
-                  onChange={(e) => handleSelectChange("district", e.target.value)}
+                  onChange={(e) => handleFieldChange("district", e.target.value)}
                   className="vista-filter-item__select"
                 >
                   <option value="all">Tất cả khu vực</option>
@@ -69,6 +104,8 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
                   <option value="hai-chau">Quận Hải Châu</option>
                   <option value="hoa-vang">Huyện Hòa Vang</option>
                   <option value="ngu-hanh-son">Quận Ngũ Hành Sơn</option>
+                  <option value="lien-chieu">Quận Liên Chiểu</option>
+                  <option value="thanh-khe">Quận Thanh Khê</option>
                 </select>
                 <span className="material-symbols-outlined vista-filter-item__arrow">expand_more</span>
               </div>
@@ -90,7 +127,7 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
                 <select
                   id="filter-price"
                   value={filters.price}
-                  onChange={(e) => handleSelectChange("price", e.target.value)}
+                  onChange={(e) => handleFieldChange("price", e.target.value)}
                   className="vista-filter-item__select"
                 >
                   <option value="all">Tất cả mức giá</option>
@@ -106,8 +143,8 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
 
           <div className="vista-filter-bar__divider" aria-hidden="true" />
 
-          {/* 3. ĐANG MỞ */}
-          <div className="vista-filter-item">
+          {/* 3. ĐANG MỞ (Sắp có) */}
+          <div className="vista-filter-item" style={{ opacity: 0.85 }}>
             <div className="vista-filter-item__icon-wrap">
               <span className="material-symbols-outlined text-primary">schedule</span>
             </div>
@@ -119,12 +156,12 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
                 <select
                   id="filter-status"
                   value={filters.status}
-                  onChange={(e) => handleSelectChange("status", e.target.value)}
+                  onChange={(e) => handleFieldChange("status", e.target.value)}
                   className="vista-filter-item__select"
                 >
-                  <option value="all">Tất cả</option>
-                  <option value="open_now">Đang mở cửa</option>
-                  <option value="247">Mở 24/7</option>
+                  <option value="all">Tất cả (Mặc định)</option>
+                  <option value="open_now" disabled>Đang mở cửa (Sắp có)</option>
+                  <option value="247" disabled>Mở 24/7 (Sắp có)</option>
                 </select>
                 <span className="material-symbols-outlined vista-filter-item__arrow">expand_more</span>
               </div>
@@ -146,7 +183,7 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
                 <select
                   id="filter-time"
                   value={filters.time}
-                  onChange={(e) => handleSelectChange("time", e.target.value)}
+                  onChange={(e) => handleFieldChange("time", e.target.value)}
                   className="vista-filter-item__select"
                 >
                   <option value="all">Tất cả thời điểm</option>
@@ -161,8 +198,8 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
 
           <div className="vista-filter-bar__divider" aria-hidden="true" />
 
-          {/* 5. KHOẢNG CÁCH */}
-          <div className="vista-filter-item">
+          {/* 5. KHOẢNG CÁCH (Sắp có) */}
+          <div className="vista-filter-item" style={{ opacity: 0.85 }}>
             <div className="vista-filter-item__icon-wrap">
               <span className="material-symbols-outlined text-primary">directions_walk</span>
             </div>
@@ -174,13 +211,13 @@ export const DiscoverFilterBar: React.FC<DiscoverFilterBarProps> = ({
                 <select
                   id="filter-distance"
                   value={filters.distance}
-                  onChange={(e) => handleSelectChange("distance", e.target.value)}
+                  onChange={(e) => handleFieldChange("distance", e.target.value)}
                   className="vista-filter-item__select"
                 >
-                  <option value="all">Tất cả</option>
-                  <option value="2km">&lt; 2 km</option>
-                  <option value="5km">2 – 5 km</option>
-                  <option value="10km">&gt; 5 km</option>
+                  <option value="all">Tất cả (Mặc định)</option>
+                  <option value="2km" disabled>&lt; 2 km (Sắp có)</option>
+                  <option value="5km" disabled>2 – 5 km (Sắp có)</option>
+                  <option value="10km" disabled>&gt; 5 km (Sắp có)</option>
                 </select>
                 <span className="material-symbols-outlined vista-filter-item__arrow">expand_more</span>
               </div>

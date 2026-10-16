@@ -1,23 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import PlaceCard from "../place/PlaceCard";
-import { MOCK_LOCAL_PLACES, PlaceItem } from "../../data/mockPlaces";
+import { PlaceItem } from "../../data/mockPlaces";
+import { placeService, mapSummaryToPlaceItem } from "../../services/placeService";
 import "./LocalDiscoverySection.css";
 
 export const LocalDiscoverySection: React.FC = () => {
-  const [places, setPlaces] = useState<PlaceItem[]>(MOCK_LOCAL_PLACES);
+  const [places, setPlaces] = useState<PlaceItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("all");
 
-  const handleFavoriteToggle = (id: string, isFav: boolean) => {
-    setPlaces((prev) =>
-      prev.map((p) => (p.id === id ? { ...p, isFavorite: isFav } : p))
-    );
-  };
+  const loadPlaces = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      // Fetch 6 top-rated places from backend API
+      const res = await placeService.listPlaces({
+        page: 0,
+        size: 6,
+        sort: "rating",
+      });
+      const items = res.content.map((summary) => mapSummaryToPlaceItem(summary));
+      setPlaces(items);
+    } catch (err: unknown) {
+      setError("Không thể tải danh sách địa điểm từ máy chủ.");
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadPlaces();
+  }, [loadPlaces]);
 
   const filteredPlaces = places.filter((p) => {
-    if (activeTab === "beach") return p.categoryTag.includes("Biển");
-    if (activeTab === "mountain") return p.categoryTag.includes("Núi") || p.id === "ba-na-hills";
-    if (activeTab === "heritage") return p.categoryTag.includes("Ẩm thực") || p.id === "cho-han";
+    const cat = (p.categoryTag || "").toLowerCase();
+    const name = (p.name || "").toLowerCase();
+    const id = (p.id || "").toLowerCase();
+
+    if (activeTab === "beach") {
+      return cat.includes("biển") || name.includes("mỹ khê") || name.includes("non nước") || name.includes("rạng");
+    }
+    if (activeTab === "mountain") {
+      return cat.includes("núi") || id.includes("ba-na") || id.includes("son-tra") || name.includes("linh ứng") || name.includes("ngũ hành sơn");
+    }
+    if (activeTab === "heritage") {
+      return cat.includes("ẩm thực") || cat.includes("chợ") || cat.includes("bảo tàng") || cat.includes("văn hóa") || name.includes("cầu");
+    }
     return true;
   });
 
@@ -76,16 +106,57 @@ export const LocalDiscoverySection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3 PLACE CARDS GRID */}
-      <div className="vista-discovery-section__grid">
-        {filteredPlaces.map((place) => (
-          <PlaceCard
-            key={place.id}
-            place={place}
-            onFavoriteToggle={handleFavoriteToggle}
-          />
-        ))}
-      </div>
+      {/* SKELETON LOADING STATE */}
+      {isLoading && (
+        <div className="vista-discovery-section__grid">
+          {[1, 2, 3].map((n) => (
+            <div key={n} className="vista-discovery-skeleton">
+              <div className="vista-discovery-skeleton__media" />
+              <div className="vista-discovery-skeleton__body">
+                <div className="vista-discovery-skeleton__line" style={{ width: "40%" }} />
+                <div className="vista-discovery-skeleton__line" style={{ width: "75%", height: "20px" }} />
+                <div className="vista-discovery-skeleton__line" style={{ width: "90%" }} />
+                <div className="vista-discovery-skeleton__line" style={{ width: "60%", marginTop: "auto" }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ERROR STATE */}
+      {!isLoading && error && (
+        <div className="vista-discovery-section__status-msg">
+          <span className="material-symbols-outlined text-3xl" style={{ color: "#ef4444" }}>
+            cloud_off
+          </span>
+          <p>{error}</p>
+          <button
+            type="button"
+            onClick={loadPlaces}
+            className="vista-auth-card__submit-btn"
+            style={{ width: "auto", padding: "8px 20px" }}
+          >
+            Thử lại
+          </button>
+        </div>
+      )}
+
+      {/* EMPTY STATE */}
+      {!isLoading && !error && filteredPlaces.length === 0 && (
+        <div className="vista-discovery-section__status-msg">
+          <span className="material-symbols-outlined text-3xl text-primary">explore</span>
+          <p>Không có địa điểm nào trong danh mục này.</p>
+        </div>
+      )}
+
+      {/* REAL PLACES GRID */}
+      {!isLoading && !error && filteredPlaces.length > 0 && (
+        <div className="vista-discovery-section__grid">
+          {filteredPlaces.slice(0, 3).map((place) => (
+            <PlaceCard key={place.id} place={place} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

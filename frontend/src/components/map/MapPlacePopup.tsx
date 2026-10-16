@@ -86,7 +86,7 @@ export const MapPlacePopup: React.FC<MapPlacePopupProps> = ({ place, onClose }) 
 
         {/* CIRCULAR ARROW CTA LINK */}
         <Link
-          to={`/places?id=${place.id}`}
+          to={`/places/${place.id}`}
           className="vista-map-popup__cta-btn"
           title={`Xem chi tiết ${place.name}`}
           aria-label={`Xem chi tiết ${place.name}`}

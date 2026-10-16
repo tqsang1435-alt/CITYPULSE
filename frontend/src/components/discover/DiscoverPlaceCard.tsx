@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { DiscoverPlaceItem } from "../../data/mockPlaces";
+import { useFavorite } from "../../context/FavoriteContext";
+import { useAuth } from "../../context/AuthContext";
 import "./DiscoverPlaceCard.css";
 
 export interface DiscoverPlaceCardProps {
@@ -15,14 +18,28 @@ export const DiscoverPlaceCard: React.FC<DiscoverPlaceCardProps> = ({
   onSelect,
   onFavoriteToggle,
 }) => {
-  const [isFavorite, setIsFavorite] = useState(Boolean(place.isFavorite));
+  const { isAuthenticated } = useAuth();
+  const { isFavorited, toggleFavorite } = useFavorite();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleHeartClick = (e: React.MouseEvent) => {
+  const isFavorite = isFavorited(place.id) || Boolean(place.isFavorite);
+
+  const handleHeartClick = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    const next = !isFavorite;
-    setIsFavorite(next);
-    if (onFavoriteToggle) {
-      onFavoriteToggle(place.id, next);
+
+    if (!isAuthenticated) {
+      navigate("/login", { state: { from: location } });
+      return;
+    }
+
+    try {
+      const nextState = await toggleFavorite(place.id);
+      if (onFavoriteToggle) {
+        onFavoriteToggle(place.id, nextState);
+      }
+    } catch {
+      // Handled by context rollback
     }
   };
 
@@ -72,7 +89,15 @@ export const DiscoverPlaceCard: React.FC<DiscoverPlaceCardProps> = ({
       <div className="vista-discover-card__info">
         {/* TOP ROW: TITLE & FAVORITE */}
         <div className="vista-discover-card__top">
-          <h3 className="vista-discover-card__name">{place.name}</h3>
+          <Link
+            to={`/places/${place.id}`}
+            className="vista-discover-card__name"
+            style={{ textDecoration: "none", color: "inherit" }}
+            onClick={(e) => e.stopPropagation()}
+            title="Xem chi tiết địa điểm"
+          >
+            {place.name}
+          </Link>
 
           <button
             type="button"

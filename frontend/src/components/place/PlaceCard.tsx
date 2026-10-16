@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PlaceItem } from "../../data/mockPlaces";
+import { useFavorite } from "../../context/FavoriteContext";
+import { useAuth } from "../../context/AuthContext";
 import "./PlaceCard.css";
 
 export interface PlaceCardProps {
@@ -9,15 +11,29 @@ export interface PlaceCardProps {
 }
 
 export const PlaceCard: React.FC<PlaceCardProps> = ({ place, onFavoriteToggle }) => {
-  const [isFavorite, setIsFavorite] = useState(Boolean(place.isFavorite));
+  const { isAuthenticated } = useAuth();
+  const { isFavorited, toggleFavorite } = useFavorite();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleHeartClick = (e: React.MouseEvent) => {
+  const isFavorite = isFavorited(place.id) || Boolean(place.isFavorite);
+
+  const handleHeartClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const nextState = !isFavorite;
-    setIsFavorite(nextState);
-    if (onFavoriteToggle) {
-      onFavoriteToggle(place.id, nextState);
+
+    if (!isAuthenticated) {
+      navigate("/login", { state: { from: location } });
+      return;
+    }
+
+    try {
+      const nextState = await toggleFavorite(place.id);
+      if (onFavoriteToggle) {
+        onFavoriteToggle(place.id, nextState);
+      }
+    } catch {
+      // Failed toggle handled by context rollback
     }
   };
 
@@ -35,7 +51,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({ place, onFavoriteToggle })
 
   return (
     <article className="vista-place-card">
-      <Link to={`/places?id=${place.id}`} className="vista-place-card__link">
+      <Link to={`/places/${place.id}`} className="vista-place-card__link">
         {/* MEDIA CONTAINER */}
         <div className="vista-place-card__media">
           <img

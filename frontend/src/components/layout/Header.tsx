@@ -1,19 +1,45 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "./Header.css";
 
 export interface HeaderUser {
   displayName?: string;
   avatarUrl?: string;
+  email?: string;
 }
 
 export interface HeaderProps {
   user?: HeaderUser | null;
 }
 
-export const Header: React.FC<HeaderProps> = ({ user = null }) => {
+export const Header: React.FC<HeaderProps> = ({ user: propUser }) => {
+  const { user: authUser, logout, isAuthenticated } = useAuth();
+  const currentUser = authUser || propUser;
+  const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleLogout = async () => {
+    setDropdownOpen(false);
+    await logout();
+    navigate("/", { replace: true });
+  };
 
   const navItems = [
     { label: "Khám phá", path: "/places" },
@@ -32,6 +58,14 @@ export const Header: React.FC<HeaderProps> = ({ user = null }) => {
       return location.pathname === "/places" && !location.search.includes("view=map");
     }
     return pathname.startsWith(basePath);
+  };
+
+  // Compute 2-letter initials for avatar fallback
+  const getInitials = (name?: string) => {
+    if (!name) return "VI";
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   };
 
   return (
@@ -99,26 +133,87 @@ export const Header: React.FC<HeaderProps> = ({ user = null }) => {
           </div>
 
           {/* USER AVATAR / AUTH TRIGGER */}
-          <div className="dnvibe-header__user-wrapper">
-            <Link
-              to={user ? "/profile" : "/login"}
-              className="dnvibe-header__avatar-btn"
-              aria-label={user ? `Tài khoản của ${user.displayName || "bạn"}` : "Đăng nhập vào VISTA"}
-              title={user ? user.displayName || "Tài khoản cá nhân" : "Đăng nhập VISTA"}
-            >
-              {user?.avatarUrl ? (
-                <img
-                  src={user.avatarUrl}
-                  alt={user.displayName || "Avatar"}
-                  className="dnvibe-header__avatar-img"
-                />
-              ) : (
+          <div className="dnvibe-header__user-wrapper" ref={dropdownRef}>
+            {currentUser && isAuthenticated ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen((prev) => !prev)}
+                  className="dnvibe-header__avatar-btn"
+                  aria-expanded={dropdownOpen}
+                  aria-haspopup="true"
+                  aria-label={`Tài khoản của ${currentUser.displayName || "bạn"}`}
+                  title={currentUser.displayName || "Tài khoản cá nhân"}
+                >
+                  {currentUser.avatarUrl ? (
+                    <img
+                      src={currentUser.avatarUrl}
+                      alt={currentUser.displayName || "Avatar"}
+                      className="dnvibe-header__avatar-img"
+                    />
+                  ) : (
+                    <span
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: 700,
+                        color: "var(--dnvibe-primary)",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {getInitials(currentUser.displayName)}
+                    </span>
+                  )}
+                  <span className="dnvibe-header__status-dot" aria-hidden="true" />
+                </button>
+
+                {/* LOGGED IN DROPDOWN MENU */}
+                {dropdownOpen && (
+                  <div className="dnvibe-header__dropdown" role="menu">
+                    <div className="dnvibe-header__dropdown-info">
+                      <div className="dnvibe-header__dropdown-name">
+                        {currentUser.displayName || "Người dùng VISTA"}
+                      </div>
+                      <div className="dnvibe-header__dropdown-email">
+                        {currentUser.email || "Đã đăng nhập"}
+                      </div>
+                    </div>
+
+                    <Link
+                      to="/saved"
+                      className="dnvibe-header__dropdown-item"
+                      role="menuitem"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-base">favorite</span>
+                      <span>Địa điểm đã lưu</span>
+                    </Link>
+
+                    <div className="dnvibe-header__dropdown-divider" aria-hidden="true" />
+
+                    <button
+                      type="button"
+                      className="dnvibe-header__dropdown-item dnvibe-header__dropdown-item--danger"
+                      role="menuitem"
+                      onClick={handleLogout}
+                    >
+                      <span className="material-symbols-outlined text-base">logout</span>
+                      <span>Đăng xuất</span>
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className="dnvibe-header__avatar-btn"
+                aria-label="Đăng nhập vào VISTA"
+                title="Đăng nhập VISTA"
+              >
                 <span className="material-symbols-outlined dnvibe-header__avatar-fallback">
-                  {user ? "account_circle" : "person"}
+                  person
                 </span>
-              )}
-              {user && <span className="dnvibe-header__status-dot" aria-hidden="true" />}
-            </Link>
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -72,3 +72,98 @@
   flex-direction: column;
   gap: 14px;
 }
+
+/* Pagination Bar */
+.vista-discover-list__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: var(--dnvibe-radius-pill, 999px);
+  border: 1px solid rgba(0, 106, 104, 0.12);
+}
+
+.vista-discover-list__page-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--dnvibe-radius-pill, 999px);
+  border: 1px solid rgba(0, 106, 104, 0.2);
+  background: #ffffff;
+  color: var(--dnvibe-primary, #006a68);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vista-discover-list__page-btn:hover:not(:disabled) {
+  background: var(--dnvibe-primary, #006a68);
+  color: #ffffff;
+}
+
+.vista-discover-list__page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.vista-discover-list__page-info {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dnvibe-neutral-700, #384948);
+}
+
+/* Skeleton Card */
+.vista-discover-skeleton-card {
+  display: flex;
+  gap: 14px;
+  height: 160px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  border: 1px solid rgba(0, 106, 104, 0.08);
+}
+
+.vista-discover-skeleton-card__thumb {
+  width: 140px;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #eef5f5 25%, #f8fcfc 50%, #eef5f5 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.vista-discover-skeleton-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vista-discover-skeleton-card__line {
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #eef5f5 25%, #f8fcfc 50%, #eef5f5 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s infinite;
+}
+
+.vista-discover-empty {
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  border: 1px dashed rgba(0, 106, 104, 0.2);
+  color: var(--dnvibe-neutral-600);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+

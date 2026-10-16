@@ -3,6 +3,13 @@ import MainLayout from "./components/layout/MainLayout";
 import Button from "./components/common/Button";
 import HomePage from "./pages/HomePage";
 import DiscoverPage from "./pages/DiscoverPage";
+import PlaceDetailPage from "./pages/PlaceDetailPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import SavedPage from "./pages/SavedPage";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
+import { FavoriteProvider } from "./context/FavoriteContext";
 
 function PlaceholderPage({ title }: { title: string }) {
   return (
@@ -21,17 +28,30 @@ function PlaceholderPage({ title }: { title: string }) {
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/places" element={<DiscoverPage />} />
-        <Route path="/routes" element={<PlaceholderPage title="Tuyến khám phá" />} />
-        <Route path="/trips" element={<PlaceholderPage title="Chuyến đi của tôi" />} />
-        <Route path="/community" element={<PlaceholderPage title="Cộng đồng" />} />
-        <Route path="/saved" element={<PlaceholderPage title="Địa điểm đã lưu" />} />
-        <Route path="/login" element={<PlaceholderPage title="Đăng nhập VISTA" />} />
-        <Route path="*" element={<PlaceholderPage title="Không tìm thấy trang" />} />
-      </Route>
-    </Routes>
+    <AuthProvider>
+      <FavoriteProvider>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/places" element={<DiscoverPage />} />
+            <Route path="/places/:idOrSlug" element={<PlaceDetailPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route
+              path="/saved"
+              element={
+                <ProtectedRoute>
+                  <SavedPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/routes" element={<PlaceholderPage title="Tuyến khám phá" />} />
+            <Route path="/trips" element={<PlaceholderPage title="Chuyến đi của tôi" />} />
+            <Route path="/community" element={<PlaceholderPage title="Cộng đồng" />} />
+            <Route path="*" element={<PlaceholderPage title="Không tìm thấy trang" />} />
+          </Route>
+        </Routes>
+      </FavoriteProvider>
+    </AuthProvider>
   );
 }
