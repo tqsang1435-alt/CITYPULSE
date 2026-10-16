@@ -9,6 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -24,6 +25,7 @@ import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Value("${citypulse.cors.allowed-origins:http://localhost:5173}")
@@ -68,6 +70,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/logout").authenticated()
                 // Protected favorite endpoints
                 .requestMatchers("/api/v1/favorites", "/api/v1/favorites/**").authenticated()
+                // Admin namespace endpoints restricted to administrative roles
+                .requestMatchers("/api/v1/admin/**").hasAnyRole("CONTENT_ADMIN", "SYSTEM_ADMIN", "ADMIN")
                 // All other API requests require authentication
                 .requestMatchers("/api/v1/**").authenticated()
                 .anyRequest().permitAll()

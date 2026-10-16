@@ -3,9 +3,40 @@
  * Aligned with Spring Boot backend DTOs (Auth, Place, Favorite, Page).
  */
 
-export type Role = "USER" | "ADMIN";
+export type Role = "USER" | "ADMIN" | "CONTENT_ADMIN" | "SYSTEM_ADMIN";
 
 export type UserStatus = "ACTIVE" | "LOCKED" | "PENDING";
+
+export type ReportStatus = "OPEN" | "IN_REVIEW" | "RESOLVED" | "REJECTED";
+
+export type ReportSubjectType = "PLACE" | "REVIEW" | "POST" | "SUBMISSION" | "MEDIA";
+
+export interface ReportSummary {
+  id: string;
+  reporterId: string;
+  subjectType: ReportSubjectType;
+  subjectId: string;
+  reason: string;
+  description: string | null;
+  evidenceUrls: string | null;
+  status: ReportStatus;
+  resolutionAction: string | null;
+  assignedTo: string | null;
+  resolvedAt: string | null;
+  duplicateCount: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AdminStatsOverview {
+  openReportsCount: number;
+  inReviewReportsCount: number;
+  resolvedReportsCount: number;
+  lockedUsersCount: number;
+  totalModerationActionsCount: number;
+  totalAuditLogsCount: number;
+  systemStatus: string;
+}
 
 export interface User {
   id: string;

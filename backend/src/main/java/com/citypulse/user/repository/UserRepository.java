@@ -23,6 +23,8 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
     List<User> findAllByStatus(UserStatus status);
 
+    long countByStatus(UserStatus status);
+
     /**
      * Finds a user after trimming and lowercasing the provided email.
      */

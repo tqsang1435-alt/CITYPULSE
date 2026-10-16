@@ -10,6 +10,16 @@ import SavedPage from "./pages/SavedPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import { FavoriteProvider } from "./context/FavoriteContext";
+import AdminRoute from "./components/admin/AdminRoute";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import {
+  AdminReportsPage,
+  AdminModerationPage,
+  AdminPlacesPage,
+  AdminUsersPage,
+  AdminAuditLogsPage,
+} from "./pages/admin/AdminPlaceholderPages";
 
 function PlaceholderPage({ title }: { title: string }) {
   return (
@@ -49,6 +59,23 @@ export default function App() {
             <Route path="/trips" element={<PlaceholderPage title="Chuyến đi của tôi" />} />
             <Route path="/community" element={<PlaceholderPage title="Cộng đồng" />} />
             <Route path="*" element={<PlaceholderPage title="Không tìm thấy trang" />} />
+          </Route>
+
+          {/* Admin Protected Namespace */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminLayout />
+              </AdminRoute>
+            }
+          >
+            <Route index element={<AdminDashboardPage />} />
+            <Route path="reports" element={<AdminReportsPage />} />
+            <Route path="moderation" element={<AdminModerationPage />} />
+            <Route path="places" element={<AdminPlacesPage />} />
+            <Route path="users" element={<AdminUsersPage />} />
+            <Route path="audit-logs" element={<AdminAuditLogsPage />} />
           </Route>
         </Routes>
       </FavoriteProvider>
